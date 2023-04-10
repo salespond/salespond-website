@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <h1>Salespond</h1>
+  <img src="/assets/home_full_ripper.png" alt="">
 </template>
