@@ -1,10 +1,7 @@
-<template>
-  <h1 class="text-3xl font-bold underline text-red-500">
-    Hello world!
-  </h1>
-</template>
-
-
 <script setup lang="ts">
 
 </script>
+
+<template>
+  <img src="/assets/home_full_ripper.png" alt="">
+</template>
