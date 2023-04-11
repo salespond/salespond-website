@@ -1,5 +1,10 @@
 @import './base.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 img {
   width: 100%;
 }
