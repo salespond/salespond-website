@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-img {
-  width: 100%;
+section.hero-banner {
+  padding-top: 88px;
+  @apply bg-gradient-to-b from-accent-1 to-accent-2 h-screen
 }

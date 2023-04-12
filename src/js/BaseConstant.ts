@@ -26,9 +26,5 @@ export const NAV_ITEMS = [
     {
         name: 'Blog',
         redirection: '/'
-    },
-    {
-        name: 'Contact Us',
-        redirection: '/'
-    },
+    }
 ]
