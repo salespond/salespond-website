@@ -1,6 +1,6 @@
 <template>
   <nav class="w-full bg-accent-1 h-[88px] fixed top-0 left-0 z-50">
-    <div class="s-container h-full mx-auto px-[15px] flex items-center justify-between ">
+    <div class="s-container h-full flex items-center justify-between ">
       <div>
         <BrandIcon />
       </div>

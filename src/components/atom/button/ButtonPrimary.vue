@@ -1,6 +1,6 @@
 <template>
   <button @click="redirect"
-    class="w-fit bg-primary rounded-full py-[6px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90">
+    class="w-fit bg-primary rounded-full h-[43px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90">
     {{ buttonText }}
   </button>
 </template>
