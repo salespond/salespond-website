@@ -3,5 +3,13 @@
 </script>
 
 <template>
-  <img src="/assets/home_full_ripper.png" alt="">
+  <div class="page-content">
+    <section class="hero-banner place-content-center">
+      <h1 class="text-white">SAMPLE MESSAGE</h1>
+    </section>
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+  </div>
 </template>
