@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200 py-[50px]">
+  <div class="bg-gray-100 py-[50px]">
     <!-- Footer -->
     <div class="s-container grid grid-cols-1 lg:grid-cols-7 mb-[50px]">
       <div class="lg:col-span-4 ">
@@ -82,7 +82,7 @@ export default {
 
 <style scoped>
 dl dt {
-  font-weight: bolder;
+  font-weight: 600;
 }
 
 dl dd {
