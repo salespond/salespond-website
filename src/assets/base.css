@@ -78,10 +78,19 @@ main {
 /* 2xl */
 @media (min-width: 1400px) {
   .s-container {
-    width: 1320;
+    width: 1320px;
   }
 }
 
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 
 /* body {
   min-height: 100vh;

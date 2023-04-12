@@ -5,48 +5,29 @@
         <BrandIcon />
       </div>
       <div>
-        <HamburgerIcon class="lg:hidden" />
-        <div class="hidden lg:flex flex-row h-full gap-[15px] items-center lg:visible">
-          <div v-for="(item, key) in navItems" :key="key" class="px-[5px] leading-10 text-white tracking-wide" :class="{ 'text-primary font-bold': key == 2 }">
-            {{ item.name }}
-          </div>
-          <button class="w-fit bg-primary rounded-full py-[6px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90">
-            Contact Us
-          </button>
-        </div>
+        <MobileMenuButton class="lg:hidden" />
+        <NavItemGroup />
       </div>
     </div>
 
     <!-- mobile -->
-    <div class="w-full bg-accent-1 lg:hidden">
-      <div class="flex flex-col s-container px-[15px] mx-auto py-[20px]">
-        <div v-for="(item, key) in navItems" :key="key" class="px-[5px] leading-10 text-white tracking-wide" :class="{ 'bg-primary text-black font-bold': key == 2 }">
-          {{ item.name }}
-        </div>
-        <button class="w-fit bg-primary rounded-full py-[6px] px-[25px] mt-[10px] text-white tracking-wide transition-all duration-75 hover:opacity-90">
-          Contact Us
-        </button>
-      </div>
-    </div>
+    <NavMobileItemGroup />
   </nav>
 </template>
 
 <script lang="ts">
 import BrandIcon from '@/components/icon/BrandIcon.vue'
-import HamburgerIcon from '@/components/icon/HamburgerIcon.vue'
-
-import { NAV_ITEMS } from '@/js/BaseConstant';
+import MobileMenuButton from '../atom/button/MobileMenuButton.vue'
+import NavItemGroup from '../atom/menu/NavItemGroup.vue'
+import NavMobileItemGroup from '../atom/menu/NavMobileItemGroup.vue'
 
 export default {
   components: {
     BrandIcon,
-    HamburgerIcon,
+    MobileMenuButton,
+    NavItemGroup,
+    NavMobileItemGroup
   },
-  setup() {
-    return {
-      navItems: NAV_ITEMS,
-    }
-  }
 }
 </script>
 
