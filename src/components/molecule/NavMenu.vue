@@ -1,21 +1,29 @@
 <template>
   <nav class="w-full bg-accent-1 h-[88px] fixed top-0 left-0 z-50">
-    <div class="container h-full mx-auto px-[15px] flex items-center justify-between ">
-      <div class="">
+    <div class="s-container h-full mx-auto px-[15px] flex items-center justify-between ">
+      <div>
         <BrandIcon />
       </div>
-      <div class="">
-        <HamburgerIcon />
+      <div>
+        <HamburgerIcon class="lg:hidden" />
+        <div class="hidden lg:flex flex-row h-full gap-[15px] items-center lg:visible">
+          <div v-for="(item, key) in navItems" :key="key" class="px-[5px] leading-10 text-white tracking-wide" :class="{ 'text-primary font-bold': key == 2 }">
+            {{ item.name }}
+          </div>
+          <button class="w-fit bg-primary rounded-full py-[6px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90">
+            Contact Us
+          </button>
+        </div>
       </div>
     </div>
 
     <!-- mobile -->
-    <div class="w-full bg-accent-1">
-      <div class="flex flex-col container px-[15px] mx-auto py-[20px]">
-        <div v-for="(item, key) in navItems" :key="key" class="px-[5px] leading-10 text-white" :class="{ 'bg-primary text-white': key == 2 }">
+    <div class="w-full bg-accent-1 lg:hidden">
+      <div class="flex flex-col s-container px-[15px] mx-auto py-[20px]">
+        <div v-for="(item, key) in navItems" :key="key" class="px-[5px] leading-10 text-white tracking-wide" :class="{ 'bg-primary text-black font-bold': key == 2 }">
           {{ item.name }}
         </div>
-        <button class="w-fit bg-primary rounded-full py-[6px] px-[25px] mt-[10px] text-white">
+        <button class="w-fit bg-primary rounded-full py-[6px] px-[25px] mt-[10px] text-white tracking-wide transition-all duration-75 hover:opacity-90">
           Contact Us
         </button>
       </div>
