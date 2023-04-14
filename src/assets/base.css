@@ -96,6 +96,50 @@ main, footer {
   }
 }
 
+.callout-container {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 15px;
+}
+
+/* md */
+@media (min-width: 768px) {
+  .callout-container {
+    width: 720px;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .callout-container {
+    width: 960px;
+    padding-inline: 0;
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  .callout-container {
+    width: 1140px;
+    padding-inline: 0;
+  }
+}
+
+/* 2xl */
+@media (min-width: 1400px) {
+  .callout-container {
+    width: 1320px;
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 1600px) {
+  .callout-container {
+    width: 1420px;
+    padding-inline: 0;
+  }
+}
+
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
