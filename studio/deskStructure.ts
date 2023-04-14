@@ -22,6 +22,31 @@ export default (S: any) =>
                 .child(
                   S.document().schemaType('banner').documentId('home_banner')
                 ),
+              S.listItem()
+                .title("Two Section Content 1")
+                .child(
+                  S.document().schemaType('twoSectionContent').documentId('home_twoSectionContent')
+                ),
+              S.listItem()
+                .title("Two Section Content 2")
+                .child(
+                  S.document().schemaType('twoSectionContent').documentId('home_twoSectionContent2')
+                ),
+              S.listItem()
+                .title("Two Section Content 3")
+                .child(
+                  S.document().schemaType('twoSectionContent').documentId('home_twoSectionContent3')
+                ),
+              S.listItem()
+                .title("Contact Us Content")
+                .child(
+                  S.document().schemaType('simpleBanner').documentId('home_simpleBanner')
+                ),
+              S.listItem()
+                .title("Callout")
+                .child(
+                  S.document().schemaType('callout').documentId('home_callout')
+                ),
             ])
         ),
     ])
