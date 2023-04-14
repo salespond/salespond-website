@@ -1,5 +1,5 @@
 export default {
-    name: 'bannerText',
+    name: 'banner_text',
     title: 'Banner Text',
     type: 'string',
     validation: Rule => [

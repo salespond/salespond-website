@@ -1,5 +1,5 @@
 export default {
-    name: 'imagePanel',
+    name: 'image_panel',
     title: 'Image',
     type: 'image',
     options: {
@@ -10,7 +10,7 @@ export default {
           title: 'Alternative Text',
           name: 'alt',
           type: 'string',
-          initialValue: 'DataList Website'
+          initialValue: 'Salespond Website'
         }
     ],
 }

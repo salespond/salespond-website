@@ -1,5 +1,5 @@
 export default {
-    name: 'contentText',
+    name: 'content_text',
     title: 'Content text',
     type: 'text',
     validation: Rule => Rule.required()

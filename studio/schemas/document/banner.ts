@@ -1,5 +1,5 @@
 import bannerText from "../includes/bannerText"
-import bannerTextHighlight from "../includes/bannerTextHighlight"
+import bannerLabel from "../includes/bannerLabel"
 import bannerSubheaderText from "../includes/bannerSubheaderText"
 import imagePanel from "../includes/imagePanel"
 import isEnabledCTA from "../includes/isEnabledCTA"
@@ -11,8 +11,8 @@ export default {
     title: 'Banner',
     type: 'document',
     fields: [
+        bannerLabel,
         bannerText,
-        bannerTextHighlight,
         bannerSubheaderText,
         isEnabledCTA,
         ctaText,

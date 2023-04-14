@@ -1,5 +1,5 @@
 export default {
-    name: 'simpleBlockContent',
+    name: 'simple_block_content',
     title: 'Subheader Text',
     type: 'array',
     of: [

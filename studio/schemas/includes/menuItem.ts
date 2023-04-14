@@ -1,7 +1,7 @@
 import { GrNavigate } from "react-icons/gr";
 
 export default {
-    name: 'menuItem',
+    name: 'menu_item',
     title: 'Menu Item',
     type: 'object',
     icon: GrNavigate,
