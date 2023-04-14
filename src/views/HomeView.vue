@@ -103,10 +103,10 @@ import HeadingWithHighlights from '@/components/atom/text/HeadingWithHighlights.
     </section>
 
     <section class="bg-gray-100">
-      <div class="s-container py-[50px]">
+      <div class="callout-container py-[50px]">
         <div class="bg-white grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center rounded-xl shadow-lg px-[30px] py-[60px] lg:p-[50px]">
-          <div class="w-full text-center">
-            <img src="/public/assets/callout.png" alt="Salespond fish" class="w-full mb-[30px]">
+          <div class="w-full text-center ">
+            <img src="/public/assets/callout.png" alt="Salespond fish" class="w-full mb-[30px] lg:mb-0 lg:max-w-[450px] lg:mx-auto">
           </div>
           <div>
             <HeadingWithHighlights
