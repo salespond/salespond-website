@@ -6,5 +6,9 @@
 
 section.hero-banner {
   padding-top: 88px;
-  @apply bg-gradient-to-b from-accent-1 to-accent-2 h-screen
+  @apply bg-gradient-to-b from-accent-1 to-accent-2 min-h-screen
+}
+
+.bg-template-gradient {
+  @apply bg-gradient-to-b from-accent-1 to-accent-2 min-h-screen
 }
