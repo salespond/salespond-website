@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import ButtonPrimary from '@/components/atom/button/ButtonPrimary.vue'
-import HeadingWithHighlights from '@/components/atom/text/HeadingWithHighlights.vue'
-
-</script>
-
 <template>
   <div class="page-content">
     <section class="hero-banner flex items-center">
@@ -123,3 +117,24 @@ import HeadingWithHighlights from '@/components/atom/text/HeadingWithHighlights.
     </section>
   </div>
 </template>
+
+<script lang="ts">
+import ButtonPrimary from '@/components/atom/button/ButtonPrimary.vue'
+import HeadingWithHighlights from '@/components/atom/text/HeadingWithHighlights.vue'
+
+import Home from '@/core/application/Home'
+
+export default {
+  components: {
+    ButtonPrimary,
+    HeadingWithHighlights,
+  },
+  setup() {
+    const home = new Home()
+    home.getAllData().then((data: any) => {
+      console.info(data)
+    })
+  }
+}
+
+</script>
