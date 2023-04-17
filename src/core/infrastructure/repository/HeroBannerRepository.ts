@@ -5,6 +5,7 @@ export default class HeroBannerRepository {
   async fetch() {
     const results = await new QueryBuilder()
       .buildQuery(this.schemaId, [
+        'banner_label',
         'banner_text',
         'subheader_text',
         'cta_text',

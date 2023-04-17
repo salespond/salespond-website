@@ -3,18 +3,17 @@
     <section class="hero-banner flex items-center">
       <div class="s-container grid grid-cols-1 lg:grid-cols-2 lg:items-center">
         <div class="py-[80px]">
-          <p class="text-sm text-primary font-bold">SALESPOND</p>
+          <p class="text-sm text-primary font-bold">{{ homeBanner.banner_label }}</p>
           <h1 class="text-5xl lg:text-7xl font-bold text-white pr-3 mb-2">
-            Modern Sales and Marketing
+            {{ homeBanner.banner_text }}
           </h1>
           <p class="text-gray-500 mb-[20px]">
-            Our best practice approach will maximise results by bridging the gap between marketing
-            and sales.
+            {{ homeBanner.subheader_text }}
           </p>
 
-          <ButtonPrimary text="Request Demo" />
+          <ButtonPrimary :text="homeBanner.cta_text" :link-to="homeBanner.cta_redirection" />
         </div>
-        <img src="/public/assets/work-from-home.png" alt="" />
+        <img :src="parseSanityImage(homeBanner.image_panel).url()" alt="" />
       </div>
     </section>
 
@@ -203,9 +202,11 @@
 </template>
 
 <script lang="ts">
+import { reactive } from 'vue'
 import ButtonPrimary from '@/components/atom/button/ButtonPrimary.vue'
 import HeadingWithHighlights from '@/components/atom/text/HeadingWithHighlights.vue'
-
+import type HomeModel from '@/core/domain/model/HomeModel'
+import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import Home from '@/core/application/Home'
 
 export default {
@@ -214,10 +215,76 @@ export default {
     HeadingWithHighlights
   },
   setup() {
+    const homeBanner = reactive({
+      banner_label: '',
+      banner_text: '',
+      subheader_text: '',
+      cta_text: '',
+      cta_redirection: '',
+      image_panel: {},
+    })
+
+    const twoColumn1 = reactive({
+      banner_text: '',
+      block_content: {},
+      cta_1: '',
+      cta_2: '',
+      image_section: {},
+    })
+
+    const twoColumn2 = reactive({
+      banner_text: '',
+      block_content: {},
+      cta_1: '',
+      cta_2: '',
+      image_section: {},
+    })
+
+    const twoColumn3 = reactive({
+      banner_text: '',
+      block_content: {},
+      cta_1: '',
+      cta_2: '',
+      image_section: {},
+    })
+
     const home = new Home()
-    home.getAllData().then((data: any) => {
+    home.getAllData().then((data: HomeModel) => {
+      homeBanner.banner_label = data.homeBanner.banner_label!
+      homeBanner.banner_text = data.homeBanner.banner_text!
+      homeBanner.subheader_text = data.homeBanner.subheader_text!
+      homeBanner.cta_text = data.homeBanner.cta_text!
+      homeBanner.cta_redirection = data.homeBanner.cta_redirection!
+      homeBanner.image_panel = data.homeBanner.image_panel!
+
+      twoColumn1.banner_text = data.twoColumnFirstSection.banner_text!
+      twoColumn1.block_content = data.twoColumnFirstSection.block_content!
+      twoColumn1.cta_1 = data.twoColumnFirstSection.cta_1!
+      twoColumn1.cta_2 = data.twoColumnFirstSection.cta_2!
+      twoColumn1.image_section = data.twoColumnFirstSection.image_section!
+
+      twoColumn2.banner_text = data.twoColumnSecondSection.banner_text!
+      twoColumn2.block_content = data.twoColumnSecondSection.block_content!
+      twoColumn2.cta_1 = data.twoColumnSecondSection.cta_1!
+      twoColumn2.cta_2 = data.twoColumnSecondSection.cta_2!
+      twoColumn2.image_section = data.twoColumnSecondSection.image_section!
+
+      twoColumn3.banner_text = data.twoColumnThirdSection.banner_text!
+      twoColumn3.block_content = data.twoColumnThirdSection.block_content!
+      twoColumn3.cta_1 = data.twoColumnThirdSection.cta_1!
+      twoColumn3.cta_2 = data.twoColumnThirdSection.cta_2!
+      twoColumn3.image_section = data.twoColumnThirdSection.image_section!
+
       console.info(data)
     })
+
+    return {
+      parseSanityImage,
+      homeBanner,
+      twoColumn1,
+      twoColumn2,
+      twoColumn3
+    }
   }
 }
 </script>
