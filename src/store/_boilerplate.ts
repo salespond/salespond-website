@@ -1,28 +1,28 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 const state = () => ({
-    list: {}
+  list: {}
 })
 
 const actions = {
-    setList({ commit }: any, data: object) {
-        commit('SET_LIST', data)
-    }
+  setList({ commit }: any, data: object) {
+    commit('SET_LIST', data)
+  }
 }
 
 const mutations = {
-    SET_LIST(state: { list: object; }, payload: object) {
-        state.list = payload
-    }
+  SET_LIST(state: { list: object }, payload: object) {
+    state.list = payload
+  }
 }
 
 const getters = {
-    GET_list: (state: { list: object; }) => state.list,
+  GET_list: (state: { list: object }) => state.list
 }
 
 export default {
-    namespaced: true,
-    state,
-    getters,
-    actions,
-    mutations,
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
 }

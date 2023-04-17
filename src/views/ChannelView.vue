@@ -1,5 +1,3 @@
 <template>
-    <div>
-        channel
-    </div>
+  <div>channel</div>
 </template>

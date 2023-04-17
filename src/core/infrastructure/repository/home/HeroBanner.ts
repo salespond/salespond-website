@@ -1,4 +1,4 @@
-import HeroBannerRepository from "../HeroBannerRepository"
+import HeroBannerRepository from '../HeroBannerRepository'
 
 export default class HeroBanner extends HeroBannerRepository {
   static schemaId = 'home_banner'

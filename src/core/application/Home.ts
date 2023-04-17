@@ -1,4 +1,4 @@
-import HomeBannerService from "./service/home/HomeBannerService"
+import HomeBannerService from './service/home/HomeBannerService'
 
 export default class Home {
   protected homeBannerService: HomeBannerService

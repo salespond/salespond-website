@@ -1,21 +1,21 @@
-import type ServiceInterface from '@/core/domain/contract/ServiceInterface';
-import HeroBanner from '@/core/infrastructure/repository/home/HeroBanner';
-import hasData from '@/core/domain/specification/hasData';
+import type ServiceInterface from '@/core/domain/contract/ServiceInterface'
+import HeroBanner from '@/core/infrastructure/repository/home/HeroBanner'
+import hasData from '@/core/domain/specification/hasData'
 
 export default class HomeBannerService implements ServiceInterface {
   constructor() {
-    this.heroBanner = new HeroBanner();
+    this.heroBanner = new HeroBanner()
   }
 
   async process() {
-    const { data, totalCount } = await this.heroBanner.fetch();
+    const { data, totalCount } = await this.heroBanner.fetch()
 
     if (!hasData(totalCount)) {
-      throw new Error('No data was provided');
+      throw new Error('No data was provided')
     }
 
-    return data;
+    return data
   }
 
-  private readonly heroBanner: HeroBanner;
+  private readonly heroBanner: HeroBanner
 }
