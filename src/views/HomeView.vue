@@ -221,7 +221,7 @@ export default {
       subheader_text: '',
       cta_text: '',
       cta_redirection: '',
-      image_panel: {},
+      image_panel: {}
     })
 
     const twoColumn1 = reactive({
@@ -229,7 +229,7 @@ export default {
       block_content: {},
       cta_1: '',
       cta_2: '',
-      image_section: {},
+      image_section: {}
     })
 
     const twoColumn2 = reactive({
@@ -237,7 +237,7 @@ export default {
       block_content: {},
       cta_1: '',
       cta_2: '',
-      image_section: {},
+      image_section: {}
     })
 
     const twoColumn3 = reactive({
@@ -245,7 +245,7 @@ export default {
       block_content: {},
       cta_1: '',
       cta_2: '',
-      image_section: {},
+      image_section: {}
     })
 
     const home = new Home()

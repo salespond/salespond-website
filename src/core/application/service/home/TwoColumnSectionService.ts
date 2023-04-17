@@ -1,5 +1,5 @@
 import type ServiceInterface from '@/core/domain/contract/ServiceInterface'
-import TwoColumnSection from "@/core/infrastructure/repository/home/TwoColumnSection"
+import TwoColumnSection from '@/core/infrastructure/repository/home/TwoColumnSection'
 
 export default class TwoColumnSectionService implements ServiceInterface {
   constructor() {

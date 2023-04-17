@@ -5,5 +5,5 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 const builder = imageUrlBuilder(sanity)
 
 export const parseSanityImage = (source: SanityImageSource) => {
-    return builder.image(source)
+  return builder.image(source)
 }

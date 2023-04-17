@@ -1,7 +1,7 @@
-import QueryBuilder from "../QueryBuilder"
+import QueryBuilder from '../QueryBuilder'
 
 export default class TwoColumnSectionRepository {
-  constructor(protected contentName: string) { }
+  constructor(protected contentName: string) {}
 
   async fetch() {
     const results = await new QueryBuilder()
@@ -10,7 +10,7 @@ export default class TwoColumnSectionRepository {
         'block_content',
         'image_section',
         'cta_1',
-        'cta_2',
+        'cta_2'
       ])
       .process()
 
