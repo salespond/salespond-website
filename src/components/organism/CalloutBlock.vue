@@ -1,13 +1,21 @@
 <template>
   <div
-    class="bg-white grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center rounded-xl shadow-lg px-[30px] py-[60px] lg:px-[50px] lg:py-[80px]">
+    class="bg-white grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center rounded-xl shadow-lg px-[30px] py-[60px] lg:px-[50px] lg:py-[80px]"
+  >
     <div class="w-full text-center">
-      <img :src="parseSanityImage(image).url()" alt="Salespond fish"
-        class="w-full mb-[30px] lg:mb-0 lg:max-w-[450px] lg:mx-auto" />
+      <img
+        :src="parseSanityImage(image).url()"
+        alt="Salespond fish"
+        class="w-full mb-[30px] lg:mb-0 lg:max-w-[450px] lg:mx-auto"
+      />
     </div>
     <div>
-      <HeadingWithHighlights :text="text" :highlight="highlight" text-location="home"
-        class="font-bold text-black mb-[20px]" />
+      <HeadingWithHighlights
+        :text="text"
+        :highlight="highlight"
+        text-location="home"
+        class="font-bold text-black mb-[20px]"
+      />
       <p class="text-gray-600 mb-[20px] prose" v-html="toHTML(content)"></p>
       <ButtonPrimary v-if="ctaEnabled" :text="ctaText" :link-to="ctaRedirection" />
     </div>
@@ -96,6 +104,4 @@ export default {
   }
 }
 </script>
-<style lang="">
-  
-</style>
+<style lang=""></style>

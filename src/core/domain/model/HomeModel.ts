@@ -37,5 +37,5 @@ export default interface HomeModel {
     image_panel?: object
     cta_text?: string
     cta_redirection?: string
-  },
+  }
 }

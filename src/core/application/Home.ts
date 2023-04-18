@@ -6,7 +6,7 @@ export default class Home {
   private readonly homeBannerService: HomeBannerService
   private readonly twoColumnSectionService: TwoColumnSectionService
   private readonly homeCalloutService: HomeCalloutService
-  
+
   constructor() {
     this.homeBannerService = new HomeBannerService()
     this.twoColumnSectionService = new TwoColumnSectionService()

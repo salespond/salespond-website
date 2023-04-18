@@ -3,8 +3,18 @@
     <ColumnTitle />
     <ColumnDescription />
     <div class="flex flex-col lg:flex-row gap-2">
-      <ButtonPrimary v-if="btn1.cta_enabled" class="w-full lg:w-fit" :text="btn1.cta_text" :link-to="btn1.cta_redirection" />
-      <ButtonPrimary v-if="btn2.cta_enabled" class="w-full lg:w-fit" :text="btn2.cta_text" :link-to="btn2.cta_redirection" />
+      <ButtonPrimary
+        v-if="btn1.cta_enabled"
+        class="w-full lg:w-fit"
+        :text="btn1.cta_text"
+        :link-to="btn1.cta_redirection"
+      />
+      <ButtonPrimary
+        v-if="btn2.cta_enabled"
+        class="w-full lg:w-fit"
+        :text="btn2.cta_text"
+        :link-to="btn2.cta_redirection"
+      />
     </div>
   </div>
 </template>
@@ -40,13 +50,10 @@ export default {
           cta_text: 'Button Two'
         }
       }
-    },
+    }
   },
-  setup(props: any){
-    const {
-      cta1,
-      cta2
-    } = toRefs(props)
+  setup(props: any) {
+    const { cta1, cta2 } = toRefs(props)
 
     return {
       btn1: cta1,
@@ -55,5 +62,4 @@ export default {
   }
 }
 </script>
-<style>
-</style>
+<style></style>

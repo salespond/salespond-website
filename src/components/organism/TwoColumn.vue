@@ -71,32 +71,26 @@ export default {
           }
         }
       }
-    },
+    }
   },
   setup(props: any) {
-      const {
-        bannerText,
-        content,
-        cta1,
-        cta2,
-        image
-      } = toRefs(props)
+    const { bannerText, content, cta1, cta2, image } = toRefs(props)
 
-      const isLocatedRight = image.value.image_location_toggle
-      const src = image.value.image_panel
+    const isLocatedRight = image.value.image_location_toggle
+    const src = image.value.image_panel
 
-      provide('bannerText', bannerText)
-      provide('descriptionText', content)
+    provide('bannerText', bannerText)
+    provide('descriptionText', content)
 
-      return {
-        banner: bannerText,
-        blockContent: content,
-        button1: cta1,
-        button2: cta2,
-        isLocatedRight,
-        src,
-      }
+    return {
+      banner: bannerText,
+      blockContent: content,
+      button1: cta1,
+      button2: cta2,
+      isLocatedRight,
+      src
     }
+  }
 }
 </script>
 <style scoped>

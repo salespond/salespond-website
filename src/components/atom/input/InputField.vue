@@ -1,9 +1,16 @@
 <template>
-  <input :id="id" :type="type" :placeholder="placeholderText" :disabled="disabled" :name="inputName" :required="required"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus: ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+  <input
+    :id="id"
+    :type="type"
+    :placeholder="placeholderText"
+    :disabled="disabled"
+    :name="inputName"
+    :required="required"
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus: ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+  />
 </template>
 <script lang="ts">
-const updateInput = 'update:modelValue';
+const updateInput = 'update:modelValue'
 export default {
   props: {
     id: {
@@ -16,7 +23,7 @@ export default {
     },
     required: {
       type: Boolean,
-      default: true,
+      default: true
     },
     placeholderText: {
       type: String,
@@ -31,18 +38,18 @@ export default {
       default: ''
     },
     modelValue: {
-      type: String,
+      type: String
     }
   },
   emits: [updateInput],
   setup(props: any, { emit }: any) {
     const updateValue = (event: any) => {
-      const target = event.target as HTMLInputElement;
-      emit(updateInput, target.value);
+      const target = event.target as HTMLInputElement
+      emit(updateInput, target.value)
     }
 
     return {
-      updateValue,
+      updateValue
     }
   }
 }

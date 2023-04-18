@@ -1,6 +1,6 @@
-import type ServiceInterface from "@/core/domain/contract/ServiceInterface"
-import HomeCallout from "@/core/infrastructure/repository/home/HomeCallout"
-import hasData from "@/core/domain/specification/hasData"
+import type ServiceInterface from '@/core/domain/contract/ServiceInterface'
+import HomeCallout from '@/core/infrastructure/repository/home/HomeCallout'
+import hasData from '@/core/domain/specification/hasData'
 
 export default class HomeCalloutService implements ServiceInterface {
   constructor() {

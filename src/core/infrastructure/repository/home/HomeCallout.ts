@@ -1,4 +1,4 @@
-import CalloutRepository from "../CalloutRepository"
+import CalloutRepository from '../CalloutRepository'
 
 export default class HomeCallout extends CalloutRepository {
   static schemaId = 'home_callout'

@@ -3,7 +3,9 @@
     <div class="lg:col-span-4">
       <div class="h-full flex flex-col items-start justify-center">
         <p class="text-sm text-primary font-bold">{{ contactInfo.bannerLabel }}</p>
-        <h1 class="text-5xl lg:text-7xl font-bold text-black pr-3 mb-2">{{ contactInfo.bannerText }}</h1>
+        <h1 class="text-5xl lg:text-7xl font-bold text-black pr-3 mb-2">
+          {{ contactInfo.bannerText }}
+        </h1>
         <p class="text-gray-500 mb-[20px] prose" v-html="toHTML(contactInfo.blockContent)"></p>
       </div>
     </div>
@@ -45,6 +47,4 @@ export default {
   }
 }
 </script>
-<style lang="">
-  
-</style>
+<style lang=""></style>

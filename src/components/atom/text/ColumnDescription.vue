@@ -13,9 +13,7 @@ export default {
       description,
       toHTML
     }
-  }  
+  }
 }
 </script>
-<style lang="">
-  
-</style>
+<style lang=""></style>

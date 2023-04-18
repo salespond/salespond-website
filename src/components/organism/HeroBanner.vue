@@ -23,15 +23,15 @@ export default {
   props: {
     banner: {
       type: String,
-      default: 'Banner text',
+      default: 'Banner text'
     },
     label: {
       type: String,
-      default: 'Banner label',
+      default: 'Banner label'
     },
     content: {
       type: String,
-      default: 'Banner content',
+      default: 'Banner content'
     },
     ctaEnabled: {
       type: Boolean,
@@ -39,11 +39,11 @@ export default {
     },
     ctaText: {
       type: String,
-      default: 'CTA text',
+      default: 'CTA text'
     },
     ctaRedirection: {
       type: String,
-      default: '#',
+      default: '#'
     },
     image: {
       type: Object,
@@ -66,6 +66,4 @@ export default {
   }
 }
 </script>
-<style lang="">
-  
-</style>
+<style lang=""></style>

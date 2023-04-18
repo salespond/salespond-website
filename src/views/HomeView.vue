@@ -15,9 +15,11 @@
     </section>
 
     <section class="bg-gray-100">
-      <div class="s-container min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center relative">
+      <div
+        class="s-container min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center relative"
+      >
         <TwoColumn
-          :banner-text="twoColumn1.bannerText" 
+          :banner-text="twoColumn1.bannerText"
           :content="twoColumn1.blockContent"
           :cta1="twoColumn1.cta1"
           :cta2="twoColumn1.cta2"
@@ -32,7 +34,7 @@
           class="min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center"
         >
           <TwoColumn
-            :banner-text="twoColumn2.bannerText" 
+            :banner-text="twoColumn2.bannerText"
             :content="twoColumn2.blockContent"
             :cta1="twoColumn2.cta1"
             :cta2="twoColumn2.cta2"
@@ -43,7 +45,7 @@
           class="min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center"
         >
           <TwoColumn
-            :banner-text="twoColumn3.bannerText" 
+            :banner-text="twoColumn3.bannerText"
             :content="twoColumn3.blockContent"
             :cta1="twoColumn3.cta1"
             :cta2="twoColumn3.cta2"
