@@ -7,7 +7,7 @@ export default {
             name: 'twoColumnInfoContent',
             type: 'array',
             title: 'Two Column Contents',
-            validation: (Rule) => Rule.required(),
+            validation: (Rule: any) => Rule.required(),
             of: [
                 {
                     type: 'twoColumnInfoContent'

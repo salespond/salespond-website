@@ -1,7 +1,7 @@
 <template>
   <div class="page-content">
     <section class="hero-banner flex items-center">
-      <div class="s-container grid grid-cols-1 lg:grid-cols-2 lg:items-center">
+      <div class="s-container">
         <HeroBanner
           :banner="homeBanner.bannerText"
           :label="homeBanner.bannerLabel"
@@ -15,9 +15,7 @@
     </section>
 
     <section class="bg-gray-100">
-      <div
-        class="s-container min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center relative"
-      >
+      <div class="s-container relative">
         <TwoColumn
           :banner-text="twoColumn1.bannerText"
           :content="twoColumn1.blockContent"
@@ -30,28 +28,20 @@
 
     <section class="bg-template-gradient">
       <div class="s-container py-[50px] flex flex-col gap-y-[50px]">
-        <div
-          class="min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center"
-        >
-          <TwoColumn
-            :banner-text="twoColumn2.bannerText"
-            :content="twoColumn2.blockContent"
-            :cta1="twoColumn2.cta1"
-            :cta2="twoColumn2.cta2"
-            :image="twoColumn2.imageSection"
-          />
-        </div>
-        <div
-          class="min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center"
-        >
-          <TwoColumn
-            :banner-text="twoColumn3.bannerText"
-            :content="twoColumn3.blockContent"
-            :cta1="twoColumn3.cta1"
-            :cta2="twoColumn3.cta2"
-            :image="twoColumn3.imageSection"
-          />
-        </div>
+        <TwoColumn
+          :banner-text="twoColumn2.bannerText"
+          :content="twoColumn2.blockContent"
+          :cta1="twoColumn2.cta1"
+          :cta2="twoColumn2.cta2"
+          :image="twoColumn2.imageSection"
+        />
+        <TwoColumn
+          :banner-text="twoColumn3.bannerText"
+          :content="twoColumn3.blockContent"
+          :cta1="twoColumn3.cta1"
+          :cta2="twoColumn3.cta2"
+          :image="twoColumn3.imageSection"
+        />
       </div>
     </section>
 
