@@ -69,7 +69,7 @@ export default {
                   title: 'Alternative Text',
                   name: 'alt',
                   type: 'string',
-                  initialValue: 'DataList Website'
+                  initialValue: 'Salespond Website'
                 }
             ],
         },

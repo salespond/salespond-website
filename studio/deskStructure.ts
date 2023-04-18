@@ -38,7 +38,7 @@ export default (S: any) =>
                   S.document().schemaType('twoSectionContent').documentId('home_twoSectionContent3')
                 ),
               S.listItem()
-                .title("Contact Us Content")
+                .title("Contact Us")
                 .child(
                   S.document().schemaType('simpleBanner').documentId('home_simpleBanner')
                 ),

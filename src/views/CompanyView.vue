@@ -1,5 +1,3 @@
 <template>
-    <div>
-        company
-    </div>
+  <div>company</div>
 </template>

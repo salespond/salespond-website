@@ -1,5 +1,3 @@
 <template>
-    <div>
-        Training
-    </div>
+  <div>Training</div>
 </template>

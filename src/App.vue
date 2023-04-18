@@ -6,16 +6,14 @@ import FooterMenu from './components/molecule/FooterMenu.vue'
 
 <template>
   <header>
-    <NavMenu/>
+    <NavMenu />
   </header>
   <main>
     <RouterView />
   </main>
   <footer>
-    <FooterMenu/>
+    <FooterMenu />
   </footer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

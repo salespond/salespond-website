@@ -1,6 +1,6 @@
 import bannerText from "../includes/bannerText"
 import bannerLabel from "../includes/bannerLabel"
-import bannerSubheaderText from "../includes/bannerSubheaderText"
+import blockContent from "../includes/blockContent"
 
 export default {
     name: 'simpleBanner',
@@ -9,6 +9,6 @@ export default {
     fields: [
         bannerLabel,
         bannerText,
-        bannerSubheaderText,
+        blockContent,
     ]
 }

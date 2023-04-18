@@ -1,6 +1,8 @@
 <template>
-  <button @click="redirect"
-    class="w-fit bg-primary rounded-full h-[43px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90">
+  <button
+    @click="redirect"
+    class="w-fit bg-primary rounded-full h-[43px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90"
+  >
     {{ buttonText }}
   </button>
 </template>
@@ -33,7 +35,7 @@ export default {
     return {
       buttonText: text,
       redirection: linkTo,
-      redirect,
+      redirect
     }
   }
 }

@@ -12,14 +12,13 @@
 @font-face {
   font-family: 'apercu';
   src: url('../../src/assets/fonts/Apercu\ Light.otf') format('opentype'),
-      url('../../src/assets/fonts/Apercu\ Regular.otf') format('opentype'),
-      url('../../src/assets/fonts/Apercu\ Medium.otf') format('opentype'),
-      url('../../src/assets/fonts/Apercu\ Bold.otf') format('opentype'),
-      url('../../src/assets/fonts/Apercu\ Mono.otf') format('opentype');
+    url('../../src/assets/fonts/Apercu\ Regular.otf') format('opentype'),
+    url('../../src/assets/fonts/Apercu\ Medium.otf') format('opentype'),
+    url('../../src/assets/fonts/Apercu\ Bold.otf') format('opentype'),
+    url('../../src/assets/fonts/Apercu\ Mono.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
-
 
 @font-face {
   font-family: 'montserrat';
@@ -51,11 +50,14 @@
   font-weight: normal;
 }
 
-nav, footer, button {
+nav,
+footer,
+button {
   font-family: apercu, sans-serif;
 }
 
-main, footer {
+main,
+footer {
   font-family: montserrat, sans-serif;
 }
 

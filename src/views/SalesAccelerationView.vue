@@ -1,5 +1,3 @@
 <template>
-    <div>
-        Sales Acc
-    </div>
+  <div>Sales Acc</div>
 </template>

@@ -1,5 +1,3 @@
 <template>
-    <div>
-        Marketing
-    </div>
+  <div>Marketing</div>
 </template>

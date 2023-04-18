@@ -50,7 +50,7 @@ const router = createRouter({
       path: '/contact-us',
       name: 'contact_us',
       component: ContactUsView
-    },
+    }
   ]
 })
 

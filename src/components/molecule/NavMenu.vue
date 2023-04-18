@@ -1,6 +1,6 @@
 <template>
   <nav class="w-full bg-accent-1 h-[88px] fixed top-0 left-0 z-50">
-    <div class="s-container h-full flex items-center justify-between ">
+    <div class="s-container h-full flex items-center justify-between">
       <div>
         <BrandIcon />
       </div>
@@ -27,12 +27,12 @@ export default {
     MobileMenuButton,
     NavItemGroup,
     NavMobileItemGroup
-  },
+  }
 }
 </script>
 
 <style scoped>
 .bg-nav-gradient {
-  @apply bg-gradient-to-b from-accent-1 to-accent-2
+  @apply bg-gradient-to-b from-accent-1 to-accent-2;
 }
 </style>
