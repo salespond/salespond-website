@@ -18,13 +18,7 @@ import { toHTML } from '@portabletext/to-html'
 import ContactForm from '@/components/molecule/ContactForm.vue'
 import ContactUs from '@/core/application/ContactUs'
 
-interface ContactUsModel {
-  contactUsBanner: {
-    banner_text?: string
-    banner_label?: string,
-    block_content?: object
-  }
-}
+import type ContactUsModel from '@/core/domain/model/ContactUsModel'
 
 export default {
   components: {
