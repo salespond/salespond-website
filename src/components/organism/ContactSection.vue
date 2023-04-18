@@ -6,7 +6,7 @@
         <h1 class="text-5xl lg:text-7xl font-bold text-black pr-3 mb-2">
           {{ contactInfo.bannerText }}
         </h1>
-        <p class="text-gray-500 mb-[20px] prose" v-html="toHTML(contactInfo.blockContent)"></p>
+        <p class="text-gray-500 mb-[20px] prose" v-html="toHTML(block)"></p>
       </div>
     </div>
     <div class="lg:col-span-3">
@@ -15,8 +15,9 @@
   </div>
 </template>
 <script lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { toHTML } from '@portabletext/to-html'
+import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import ContactForm from '@/components/molecule/ContactForm.vue'
 import ContactUs from '@/core/application/ContactUs'
 
@@ -30,21 +31,21 @@ export default {
     const contactInfo = reactive({
       bannerText: '',
       bannerLabel: '',
-      blockContent: {}
     })
+    const block = ref()
 
     const contactUs = new ContactUs()
     contactUs.getAllData().then((data: ContactUsModel) => {
       contactInfo.bannerText = data.contactUsBanner.banner_text!
       contactInfo.bannerLabel = data.contactUsBanner.banner_label!
-      contactInfo.blockContent = data.contactUsBanner.block_content!
+      block.value = data.contactUsBanner.block_content!
     })
 
     return {
       contactInfo,
-      toHTML
+      toHTML,
+      block
     }
   }
 }
 </script>
-<style lang=""></style>

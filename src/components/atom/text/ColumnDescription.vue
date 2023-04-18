@@ -7,7 +7,7 @@ import { toHTML } from '@portabletext/to-html'
 
 export default {
   setup() {
-    const description = inject('descriptionText')
+    const description: any = inject('descriptionText')
 
     return {
       description,
