@@ -49,4 +49,34 @@ export default (S: any) =>
                 ),
             ])
         ),
+
+      // Sales Acceleration
+      S.listItem()
+      .title("Sales Acceleration")
+      .child(
+        S.list()
+          .title("Document List")
+          .items([
+            S.listItem()
+              .title("Hero Banner")
+              .child(
+                S.document().schemaType('subPageBanner').documentId('sales_banner')
+              ),
+            S.listItem()
+              .title("Two Section Content")
+              .child(
+                S.document().schemaType('infoContent').documentId('sales_twoSectionContent')
+              ),
+            S.listItem()
+              .title("Contact Us")
+              .child(
+                S.document().schemaType('simpleBanner').documentId('home_simpleBanner')
+              ),
+            S.listItem()
+              .title("Callout")
+              .child(
+                S.document().schemaType('callout').documentId('sales_callout')
+              ),
+          ])
+      ),
     ])
