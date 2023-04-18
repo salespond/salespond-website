@@ -8,6 +8,7 @@ export default class HeroBannerRepository {
         'banner_label',
         'banner_text',
         'subheader_text',
+        'cta_enabled',
         'cta_text',
         'cta_redirection',
         'image_panel'

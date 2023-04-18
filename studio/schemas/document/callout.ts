@@ -4,6 +4,7 @@ import imagePanel from "../includes/imagePanel"
 import isEnabledCTA from "../includes/isEnabledCTA"
 import ctaText from "../includes/ctaText"
 import ctaRedirection from "../includes/ctaRedirection"
+import blockContent from "../includes/blockContent"
 
 export default {
     name: 'callout',
@@ -13,11 +14,7 @@ export default {
         imagePanel,
         bannerText,
         bannerTextHighlight,
-        {
-            name: 'subheaderText',
-            title: 'Subheader Text',
-            type: 'text',
-        },
+        blockContent,
         isEnabledCTA,
         ctaText,
         ctaRedirection

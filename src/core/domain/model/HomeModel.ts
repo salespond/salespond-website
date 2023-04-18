@@ -3,6 +3,7 @@ export default interface HomeModel {
     banner_label?: string
     banner_text?: string
     subheader_text?: string
+    cta_enabled?: boolean
     cta_text?: string
     cta_redirection?: string
     image_panel?: object
@@ -28,4 +29,13 @@ export default interface HomeModel {
     cta_2?: string
     image_section?: object
   }
+  homeCallout: {
+    banner_text?: string
+    text_highlight?: string
+    block_content?: object
+    cta_enabled?: boolean
+    image_panel?: object
+    cta_text?: string
+    cta_redirection?: string
+  },
 }
