@@ -11,21 +11,35 @@
         <div class="grid grid-cols-1 text-white lg:items-center py-[50px] lg:py-[120px]">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="mb-[30px]">
-              <h2 class="text-primary font-bold text-5xl mb-[30px]">Channel / Partner Activities</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h2 class="text-primary font-bold text-5xl mb-[30px]">
+                Channel / Partner Activities
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
             <div></div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="rounded-xl overflow-hidden w-full">
-              <img src="/public/assets/phone.jpg" alt="Salespond">
+              <img src="/public/assets/phone.jpg" alt="Salespond" />
             </div>
 
             <div class="flex flex-col gap-5">
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
             </div>
           </div>
         </div>
@@ -37,21 +51,35 @@
         <div class="grid grid-cols-1 lg:items-center py-[50px] lg:py-[120px]">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="mb-[30px]">
-              <h2 class="text-primary font-bold text-5xl mb-[30px]">Channel / Partner Activities</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h2 class="text-primary font-bold text-5xl mb-[30px]">
+                Channel / Partner Activities
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
             <div></div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="rounded-xl overflow-hidden w-full">
-              <img src="/public/assets/phone.jpg" alt="Salespond">
+              <img src="/public/assets/phone.jpg" alt="Salespond" />
             </div>
 
             <div class="flex flex-col gap-5">
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
             </div>
           </div>
         </div>
@@ -63,21 +91,35 @@
         <div class="grid grid-cols-1 text-white lg:items-center py-[50px] lg:py-[120px]">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="mb-[30px]">
-              <h2 class="text-primary font-bold text-5xl mb-[30px]">Channel / Partner Activities</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h2 class="text-primary font-bold text-5xl mb-[30px]">
+                Channel / Partner Activities
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
             <div></div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="rounded-xl overflow-hidden w-full">
-              <img src="/public/assets/phone.jpg" alt="Salespond">
+              <img src="/public/assets/phone.jpg" alt="Salespond" />
             </div>
 
             <div class="flex flex-col gap-5">
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
             </div>
           </div>
         </div>
@@ -89,21 +131,35 @@
         <div class="grid grid-cols-1 lg:items-center py-[50px] lg:py-[120px]">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="mb-[30px]">
-              <h2 class="text-primary font-bold text-5xl mb-[30px]">Channel / Partner Activities</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h2 class="text-primary font-bold text-5xl mb-[30px]">
+                Channel / Partner Activities
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
             <div></div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="rounded-xl overflow-hidden w-full">
-              <img src="/public/assets/phone.jpg" alt="Salespond">
+              <img src="/public/assets/phone.jpg" alt="Salespond" />
             </div>
 
             <div class="flex flex-col gap-5">
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam. Expedita sequi obcaecati sed recusandae commodi voluptas!</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
+                Expedita sequi obcaecati sed recusandae commodi voluptas!
+              </p>
             </div>
           </div>
         </div>
@@ -132,7 +188,7 @@ export default {
   components: {
     SubPageHeroBanner,
     CalloutBlock,
-    ContactSection,
+    ContactSection
   }
 }
 </script>

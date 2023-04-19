@@ -29,7 +29,7 @@ export default {
   setup() {
     const contactInfo = reactive({
       bannerText: '',
-      bannerLabel: '',
+      bannerLabel: ''
     })
     const block = ref()
 

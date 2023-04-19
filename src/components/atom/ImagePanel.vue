@@ -1,5 +1,5 @@
 <template>
-  <img :src="parseSanityImage(image).url" :alt="image.alt">
+  <img :src="parseSanityImage(image).url" :alt="image.alt" />
 </template>
 <script lang="ts">
 import { parseSanityImage } from '@/js/composable/parseSanityImage'
@@ -27,6 +27,4 @@ export default {
   }
 }
 </script>
-<style lang="">
-  
-</style>
+<style lang=""></style>
