@@ -17,7 +17,6 @@
 <script lang="ts">
 import { reactive, ref } from 'vue'
 import { toHTML } from '@portabletext/to-html'
-import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import ContactForm from '@/components/molecule/ContactForm.vue'
 import ContactUs from '@/core/application/ContactUs'
 
@@ -30,7 +29,7 @@ export default {
   setup() {
     const contactInfo = reactive({
       bannerText: '',
-      bannerLabel: '',
+      bannerLabel: ''
     })
     const block = ref()
 

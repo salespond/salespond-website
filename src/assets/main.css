@@ -9,6 +9,15 @@ section.hero-banner {
   @apply bg-gradient-to-b from-accent-1 to-accent-2 min-h-screen;
 }
 
+section.hero-banner-light {
+  padding-top: 88px;
+  @apply bg-white min-h-screen;
+}
+
+.bg-template-light {
+  @apply bg-gray-100 to-accent-2 min-h-screen;
+}
+
 .bg-template-gradient {
   @apply bg-gradient-to-b from-accent-1 to-accent-2 min-h-screen;
 }

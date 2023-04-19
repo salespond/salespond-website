@@ -1,6 +1,6 @@
 <template>
   <h1
-    class="text-heading-lg lg:text-heading-xl leading-tight"
+    class="text-5xl lg:text-7xl leading-tight font-bold"
     :class="additionalClass"
     v-html="highlightAText(textContent, highlightedText)"
   ></h1>
@@ -34,18 +34,18 @@ export default {
     const additionalClass = ref('')
     const { text, highlight, textSize } = toRefs(props)
 
-    const fontSize = () => {
-      switch (textSize.value) {
-        case 'lg':
-          return 'lg:text-heading-lg'
-        case 'xl':
-          return 'lg:text-heading-xl'
-        default:
-          return 'lg:text-heading-xl'
-      }
-    }
+    // const fontSize = () => {
+    //   switch (textSize.value) {
+    //     case 'lg':
+    //       return 'lg:text-heading-lg'
+    //     case 'xl':
+    //       return 'lg:text-heading-xl'
+    //     default:
+    //       return 'lg:text-heading-xl'
+    //   }
+    // }
 
-    additionalClass.value = fontSize()
+    // additionalClass.value = fontSize()
 
     // if (['home','footer', 'podiem', 'pricing', 'feature', 'dark'].includes(props.textLocation)) {
     //     additionalClass.value = 'footer-callout-text text-white ' + fontSize()
@@ -70,7 +70,7 @@ h1 {
 }
 
 ::v-deep(.highlight) {
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
   z-index: 1;
   transition: all 0.3s ease;
