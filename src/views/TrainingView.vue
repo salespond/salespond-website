@@ -71,7 +71,15 @@
 
     <section class="bg-gray-100">
       <div class="callout-container py-[50px] lg:py-[80px]">
-        <CalloutBlock />
+        <CalloutBlock
+          :text="callout.bannerText"
+          :highlight="callout.textHighlight"
+          :content="callout.blockContent"
+          :cta-enabled="callout.ctaEnabled"
+          :cta-text="callout.ctaText"
+          :cta-redirection="callout.ctaRedirection"
+          :image="callout.imagePanel"
+        />
       </div>
     </section>
   </div>
