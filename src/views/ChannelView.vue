@@ -2,7 +2,7 @@
   <div class="page-content">
     <section class="hero-banner-light flex items-center">
       <div class="s-container">
-        <SubPageHeroBanner 
+        <SubPageHeroBanner
           :banner="pageBanner.bannerText"
           :label="pageBanner.bannerLabel"
           :highlight="pageBanner.textHighlight"
@@ -14,15 +14,21 @@
         />
       </div>
     </section>
-  
-    <section v-for="(info, key) in twoColumnInfo" :key="key" 
-      class="flex items-center" 
+
+    <section
+      v-for="(info, key) in twoColumnInfo"
+      :key="key"
+      class="flex items-center"
       :class="[
         { 'bg-template-gradient': !get(info, 'image_section.image_location_toggle') },
         { 'bg-template-light': get(info, 'image_section.image_location_toggle') }
-    ]">
+      ]"
+    >
       <div class="s-container">
-        <div class="grid grid-cols-1  lg:items-center py-[50px] lg:py-[120px]" :class="{ 'text-white': !get(info, 'image_section.image_location_toggle') }">
+        <div
+          class="grid grid-cols-1 lg:items-center py-[50px] lg:py-[120px]"
+          :class="{ 'text-white': !get(info, 'image_section.image_location_toggle') }"
+        >
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px] lg:mb-[50px]">
             <div class="mb-[30px]">
               <h2 class="text-primary font-bold text-5xl mb-[30px]">
@@ -37,11 +43,20 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
             <div class="rounded-xl overflow-hidden w-full">
-              <img :src="parseSanityImage(get(info, 'image_section.image_panel')).url()" :alt="get(info, 'image_section.image_panel.alt')" />
+              <img
+                :src="parseSanityImage(get(info, 'image_section.image_panel')).url()"
+                :alt="get(info, 'image_section.image_panel.alt')"
+              />
             </div>
 
-            <div class="flex flex-col gap-5"  :class="{ 'order-first': !get(info, 'image_section.image_location_toggle') }">
-              <div v-html="contentChange(get(info, 'block_content'))" class="prose info-content"></div>
+            <div
+              class="flex flex-col gap-5"
+              :class="{ 'order-first': !get(info, 'image_section.image_location_toggle') }"
+            >
+              <div
+                v-html="contentChange(get(info, 'block_content'))"
+                class="prose info-content"
+              ></div>
             </div>
           </div>
         </div>
@@ -73,16 +88,16 @@ import SalesAcceleration from '@/core/application/SalesAcceleration'
 
 interface SalesAccelerationModel {
   heroBanner: {
-    banner_label?: string,
-    banner_text?: string,
-    text_highlight?: string,
-    subheader_text?: string,
-    cta_enabled?: boolean,
-    cta_text?: string,
-    cta_redirection?: string,
-    image_panel?: object,
-  },
-  twoColumnInfo?: any,
+    banner_label?: string
+    banner_text?: string
+    text_highlight?: string
+    subheader_text?: string
+    cta_enabled?: boolean
+    cta_text?: string
+    cta_redirection?: string
+    image_panel?: object
+  }
+  twoColumnInfo?: any
   callout: {
     banner_text?: string
     text_highlight?: string
@@ -109,7 +124,7 @@ export default {
       ctaEnabled: false,
       ctaText: '',
       ctaRedirection: '',
-      imagePanel: {},
+      imagePanel: {}
     })
 
     const twoColumnInfo = ref([])
@@ -149,7 +164,10 @@ export default {
 
     const contentChange = (content: any) => {
       const rawHtml = toHTML(content)
-      return rawHtml.replaceAll('<h4>', '<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">')
+      return rawHtml.replaceAll(
+        '<h4>',
+        '<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">'
+      )
     }
 
     return {
@@ -165,8 +183,10 @@ export default {
 }
 </script>
 <style class="scoped">
-
-.info-content h1 > strong, h2 > strong, h3 > strong, h4 > strong {
+.info-content h1 > strong,
+h2 > strong,
+h3 > strong,
+h4 > strong {
   font-weight: bold;
   margin-bottom: 15px;
   font-size: 30px;
