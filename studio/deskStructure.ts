@@ -80,7 +80,7 @@ export default (S: any) =>
           ])
       ),
 
-      // Sales Acceleration
+      // Marketing
       S.listItem()
       .title("Marketing")
       .child(
@@ -110,7 +110,7 @@ export default (S: any) =>
           ])
       ),
 
-      // Sales Acceleration
+      // Channel
       S.listItem()
       .title("Channel")
       .child(
@@ -140,7 +140,7 @@ export default (S: any) =>
           ])
       ),
 
-      // Sales Acceleration
+      // Training
       S.listItem()
       .title("Training")
       .child(

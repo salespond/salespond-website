@@ -84,7 +84,7 @@ import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import CalloutBlock from '@/components/organism/CalloutBlock.vue'
 import ContactSection from '@/components/organism/ContactSection.vue'
 import SubPageHeroBanner from '@/components/organism/SubPageHeroBanner.vue'
-import SalesAcceleration from '@/core/application/SalesAcceleration'
+import Channel from '@/core/application/Channel'
 
 interface SalesAccelerationModel {
   heroBanner: {
@@ -139,7 +139,7 @@ export default {
       imagePanel: {}
     })
 
-    const salesAcceleration = new SalesAcceleration()
+    const salesAcceleration = new Channel()
     salesAcceleration.getAllData().then((data: SalesAccelerationModel) => {
       console.info(data)
       pageBanner.bannerLabel = data.heroBanner.banner_label!

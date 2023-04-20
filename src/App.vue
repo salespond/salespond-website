@@ -9,7 +9,9 @@ import FooterMenu from './components/molecule/FooterMenu.vue'
     <NavMenu />
   </header>
   <main>
-    <RouterView />
+    <Suspense>
+      <RouterView />
+    </Suspense>
   </main>
   <footer>
     <FooterMenu />
