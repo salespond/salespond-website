@@ -41,56 +41,12 @@
             </div>
 
             <div class="flex flex-col gap-5"  :class="{ 'order-first': !get(info, 'image_section.image_location_toggle') }">
-              <!-- <hr class="border-b-[5px] border-primary w-[50px]" />
-              <h2 class="text-3xl font-bold">WHAT TO DO?</h2> -->
-              <div v-html="toHTML(get(info, 'block_content'))" class="prose info-content"></div>
+              <div v-html="contentChange(get(info, 'block_content'))" class="prose info-content"></div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- <section class="bg-template-light flex items-center">
-      <div class="s-container">
-        <div class="grid grid-cols-1 lg:items-center py-[50px] lg:py-[120px]">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px] lg:mb-[50px]">
-            <div class="mb-[30px]">
-              <h2 class="text-primary font-bold text-5xl mb-[30px]">
-                Channel / Partner Activities
-              </h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
-            <div></div>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px]">
-            <div class="rounded-xl overflow-hidden w-full">
-              <img src="/public/assets/phone.jpg" alt="Salespond" />
-            </div>
-
-            <div class="flex flex-col gap-5 order-first">
-              <hr class="border-b-[5px] border-primary w-[50px]" />
-              <h2 class="text-3xl font-bold">WHAT TO DO?</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
-                Expedita sequi obcaecati sed recusandae commodi voluptas!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
-                Expedita sequi obcaecati sed recusandae commodi voluptas!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa non et labore nam.
-                Expedita sequi obcaecati sed recusandae commodi voluptas!
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <section class="bg-gray-100">
       <div class="s-container py-[50px] lg:py-[80px]">
@@ -189,8 +145,12 @@ export default {
       callout.ctaText = data.callout.cta_text!
       callout.ctaRedirection = data.callout.cta_redirection!
       callout.imagePanel = data.callout.image_panel!
-
     })
+
+    const contentChange = (content: any) => {
+      const rawHtml = toHTML(content)
+      return rawHtml.replaceAll('<h4>', '<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">')
+    }
 
     return {
       pageBanner,
@@ -198,7 +158,8 @@ export default {
       callout,
       toHTML,
       parseSanityImage,
-      get
+      get,
+      contentChange
     }
   }
 }

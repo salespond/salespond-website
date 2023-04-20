@@ -79,4 +79,94 @@ export default (S: any) =>
               ),
           ])
       ),
+
+      // Sales Acceleration
+      S.listItem()
+      .title("Marketing")
+      .child(
+        S.list()
+          .title("Document List")
+          .items([
+            S.listItem()
+              .title("Hero Banner")
+              .child(
+                S.document().schemaType('subPageBanner').documentId('marketing_banner')
+              ),
+            S.listItem()
+              .title("Two Section Content")
+              .child(
+                S.document().schemaType('infoContent').documentId('marketing_twoSectionContent')
+              ),
+            S.listItem()
+              .title("Contact Us")
+              .child(
+                S.document().schemaType('simpleBanner').documentId('home_simpleBanner')
+              ),
+            S.listItem()
+              .title("Callout")
+              .child(
+                S.document().schemaType('callout').documentId('marketing_callout')
+              ),
+          ])
+      ),
+
+      // Sales Acceleration
+      S.listItem()
+      .title("Channel")
+      .child(
+        S.list()
+          .title("Document List")
+          .items([
+            S.listItem()
+              .title("Hero Banner")
+              .child(
+                S.document().schemaType('subPageBanner').documentId('channel_banner')
+              ),
+            S.listItem()
+              .title("Two Section Content")
+              .child(
+                S.document().schemaType('infoContent').documentId('channel_twoSectionContent')
+              ),
+            S.listItem()
+              .title("Contact Us")
+              .child(
+                S.document().schemaType('simpleBanner').documentId('home_simpleBanner')
+              ),
+            S.listItem()
+              .title("Callout")
+              .child(
+                S.document().schemaType('callout').documentId('channel_callout')
+              ),
+          ])
+      ),
+
+      // Sales Acceleration
+      S.listItem()
+      .title("Training")
+      .child(
+        S.list()
+          .title("Document List")
+          .items([
+            S.listItem()
+              .title("Hero Banner")
+              .child(
+                S.document().schemaType('subPageBanner').documentId('training_banner')
+              ),
+            S.listItem()
+              .title("Two Section Content")
+              .child(
+                S.document().schemaType('infoContent').documentId('training_twoSectionContent')
+              ),
+            S.listItem()
+              .title("Contact Us")
+              .child(
+                S.document().schemaType('simpleBanner').documentId('home_simpleBanner')
+              ),
+            S.listItem()
+              .title("Callout")
+              .child(
+                S.document().schemaType('callout').documentId('training_callout')
+              ),
+          ])
+      ),
     ])
