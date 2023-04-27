@@ -98,6 +98,43 @@ footer {
   }
 }
 
+.xs-container {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 15px;
+}
+
+/* md */
+@media (min-width: 768px) {
+  .xs-container {
+    width: 720px;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .xs-container {
+    width: 960px;
+    padding-inline: 0;
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  .xs-container {
+    width: 1140px;
+    padding-inline: 0;
+  }
+}
+
+/* 2xl */
+/* @media (min-width: 1400px) {
+  .xs-container {
+    width: 1320px;
+    padding-inline: 0;
+  }
+} */
+
 .callout-container {
   width: 100%;
   margin: 0 auto;

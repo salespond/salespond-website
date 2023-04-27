@@ -39,7 +39,7 @@ export default {
                       {
                           name: 'twoColumnContentText',
                           title: 'Content',
-                          type: 'blockContent',
+                          type: 'block_content',
                           validation: (Rule: any) => Rule.required()
                       }
                   ]
