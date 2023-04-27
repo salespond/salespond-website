@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+[v-cloak] {
+  display: none;
+}
+
+[v-cloak]::before {
+  content: 'Loading…';
+}
+
 section.hero-banner {
   padding-top: 88px;
   @apply bg-gradient-to-b from-accent-1 to-accent-2 min-h-screen;

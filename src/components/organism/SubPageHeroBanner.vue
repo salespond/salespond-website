@@ -2,7 +2,7 @@
   <div v-if="banner" class="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
     <div class="py-[80px]">
       <p class="text-sm text-primary font-bold">{{ label }}</p>
-      <HeadingWithHighlights class="mb-2" text="Sales Acceleration" highlight="Acceleration" />
+      <HeadingWithHighlights class="mb-2" :text="banner" :highlight="highlight" />
       <p class="text-gray-500 mb-[20px]">
         {{ content }}
       </p>
@@ -26,6 +26,10 @@ export default {
     banner: {
       type: String,
       default: 'Banner text'
+    },
+    highlight: {
+      type: String,
+      default: 'Banner'
     },
     label: {
       type: String,
