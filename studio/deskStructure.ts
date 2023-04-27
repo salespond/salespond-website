@@ -169,4 +169,39 @@ export default (S: any) =>
               ),
           ])
       ),
+
+      // Company
+      S.listItem()
+        .title("Company")
+        .child(
+          S.list()
+            .title("Fields")
+            .items([
+              S.listItem()
+                .title("Hero Banner")
+                .child(
+                  S.document().schemaType('banner').documentId('company_banner')
+                ),
+              S.listItem()
+                .title("Company Seal")
+                .child(
+                  S.document().schemaType('twoColumnSimple').documentId('company_twoColumnSimple')
+                ),
+              S.listItem()
+                .title("Our Story")
+                .child(
+                  S.document().schemaType('twoColumnTextContent').documentId('company_twoColumn')
+                ),
+              S.listItem()
+                .title("Partners")
+                .child(
+                  S.document().schemaType('clientSection').documentId('company_clientSection')
+                ),
+              S.listItem()
+                .title("Callout")
+                .child(
+                  S.document().schemaType('callout').documentId('company_callout')
+                ),
+            ])
+        ),
     ])

@@ -21,7 +21,7 @@
 <script lang="ts">
 import { toRefs } from 'vue'
 import ButtonPrimary from '../atom/button/ButtonPrimary.vue'
-import ColumnTitle from '@/components/atom/text/ColumTitle.vue'
+import ColumnTitle from '@/components/atom/text/ColumnTitle.vue'
 import ColumnDescription from '../atom/text/ColumnDescription.vue'
 
 export default {
