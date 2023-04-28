@@ -11,7 +11,7 @@ import { ref, toRefs } from 'vue'
 import { highlightAText } from '@/js/composable/highlightAText'
 
 export default {
-  name: 'HeadingWithHighlights',
+  name: 'SubHeadingWithHighlights',
   props: {
     textLocation: {
       type: String,
