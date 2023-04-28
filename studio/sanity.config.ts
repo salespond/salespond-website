@@ -7,7 +7,7 @@ import schemas from './schemas/schema'
 
 export default defineConfig({
   name: 'default',
-  title: 'datalist-website',
+  title: 'salespond-website',
 
   projectId: '0w6ohht0',
   dataset: 'production',

@@ -10,6 +10,11 @@ import twoColumnTextContent from "./document/twoColumnTextContent"
 import clientSection from "./document/clientSection"
 import serviceIcon from "./includes/serviceIcon"
 import blockContent from "./includes/blockContent"
+import threeColumnImageSimple from "./document/threeColumnImageSimple"
+import blogResource from "./document/blogResource"
+import bannerSimple from "./document/bannerSimple"
+import blogArticlePage from "./document/blogArticlePage"
+import blogCategory from "./includes/blogCategory"
 
 export default [
     banner,
@@ -23,5 +28,10 @@ export default [
     twoColumnTextContent,
     clientSection,
     serviceIcon,
-    blockContent
+    blockContent,
+    threeColumnImageSimple,
+    blogResource,
+    bannerSimple,
+    blogArticlePage,
+    blogCategory
 ]
