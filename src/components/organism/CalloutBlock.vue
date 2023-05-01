@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center rounded-xl shadow-lg px-[30px] py-[60px] lg:px-[50px] lg:py-[80px]"
+    class="bg-white grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center rounded-[40px] shadow-lg px-[30px] py-[60px] lg:px-[50px] lg:py-[80px]"
   >
     <div class="w-full text-center">
       <img
