@@ -1,6 +1,6 @@
-import type ServiceInterface from "@/core/domain/contract/ServiceInterface";
-import hasData from "@/core/domain/specification/hasData";
-import CompanyHeroBanner from "@/core/infrastructure/repository/company/CompanyHeroBanner";
+import type ServiceInterface from '@/core/domain/contract/ServiceInterface'
+import hasData from '@/core/domain/specification/hasData'
+import CompanyHeroBanner from '@/core/infrastructure/repository/company/CompanyHeroBanner'
 
 export default class CompanyHeroBannerService implements ServiceInterface {
   constructor() {

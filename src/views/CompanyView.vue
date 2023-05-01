@@ -19,7 +19,11 @@
         class="xs-container min-h-screen py-[50px] grid grid-cols-1 lg:grid-cols-2 items-center justify-center"
       >
         <div class="h-full flex items-center justify-center">
-          <img :src="parseSanityImage(companySeal.imagePanel).url()" class="w-[300px]" :alt="_.get(companySeal, 'imagePanel.alt')" />
+          <img
+            :src="parseSanityImage(companySeal.imagePanel).url()"
+            class="w-[300px]"
+            :alt="_.get(companySeal, 'imagePanel.alt')"
+          />
         </div>
         <div class="">
           <p class="text-primary font-bold">{{ companySeal.bannerLabel }}</p>
@@ -38,19 +42,32 @@
         <div class="h-full py-[50px] lg:py-[120px]">
           <div class="mb-[50px]">
             <p class="text-primary font-bold">{{ twoColumnStory.bannerLabel }}</p>
-            <sub-heading-with-highlights :text="twoColumnStory.bannerText" :highlight="twoColumnStory.textHighlight" />
+            <sub-heading-with-highlights
+              :text="twoColumnStory.bannerText"
+              :highlight="twoColumnStory.textHighlight"
+            />
           </div>
           <div class="h-full grid grid-cols-1 lg:grid-cols-2 gap-[50px] items-start">
             <div v-if="column1">
               <hr class="mb-[20px] border-[3px] border-primary w-[50px]" />
-              <h2 class="text-2xl font-bold mb-[10px]">{{ _.get(column1, 'twoColumnContentTitle') }}</h2>
-              <div class="text-gray-500 mb-[20px] prose" v-html="toHTML(column1.twoColumnContentText)"></div>
+              <h2 class="text-2xl font-bold mb-[10px]">
+                {{ _.get(column1, 'twoColumnContentTitle') }}
+              </h2>
+              <div
+                class="text-gray-500 mb-[20px] prose"
+                v-html="toHTML(column1.twoColumnContentText)"
+              ></div>
             </div>
 
             <div v-if="column2">
               <hr class="mb-[20px] border-[3px] border-primary w-[50px]" />
-              <h2 class="text-2xl font-bold mb-[10px]">{{ _.get(column2, 'twoColumnContentTitle') }}</h2>
-              <div class="text-gray-500 mb-[20px] prose" v-html="toHTML(column2.twoColumnContentText)"></div>
+              <h2 class="text-2xl font-bold mb-[10px]">
+                {{ _.get(column2, 'twoColumnContentTitle') }}
+              </h2>
+              <div
+                class="text-gray-500 mb-[20px] prose"
+                v-html="toHTML(column2.twoColumnContentText)"
+              ></div>
             </div>
           </div>
         </div>
@@ -67,9 +84,20 @@
               :highlight="clientSection.textHighlight"
             />
           </div>
-          <div v-if="clientSection.icons" class="h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[50px] items-start">
-            <div v-for="(client, key) in clientSection.icons" :key="key" class="overflow-hidden cursor-pointer hover:shadow-lg">
-              <img :src="parseSanityImage(client.image_panel).url()" class="w-full" :alt="_.get(client, 'image_panel.alt')" />
+          <div
+            v-if="clientSection.icons"
+            class="h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[50px] items-start"
+          >
+            <div
+              v-for="(client, key) in clientSection.icons"
+              :key="key"
+              class="overflow-hidden cursor-pointer hover:shadow-lg"
+            >
+              <img
+                :src="parseSanityImage(client.image_panel).url()"
+                class="w-full"
+                :alt="_.get(client, 'image_panel.alt')"
+              />
             </div>
           </div>
         </div>

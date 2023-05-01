@@ -1,6 +1,6 @@
-import type ServiceInterface from "@/core/domain/contract/ServiceInterface";
-import hasData from "@/core/domain/specification/hasData";
-import CompanyTwoColumnSimple from "@/core/infrastructure/repository/company/CompanyTwoColumnSimple";
+import type ServiceInterface from '@/core/domain/contract/ServiceInterface'
+import hasData from '@/core/domain/specification/hasData'
+import CompanyTwoColumnSimple from '@/core/infrastructure/repository/company/CompanyTwoColumnSimple'
 
 export default class CompanyTwoColumnSimpleService implements ServiceInterface {
   constructor() {

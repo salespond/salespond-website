@@ -1,8 +1,8 @@
-import CompanyHeroBannerService from "./service/company/CompanyHeroBannerService"
-import CompanyTwoColumnSimpleService from "./service/company/CompanyTwoColumnSimpleService"
-import CompanyTwoColumnTextService from "./service/company/CompanyTwoColumnTextService"
-import CompanyClientSectionService from "./service/company/CompanyClientSectionService"
-import CompanyCalloutService from "./service/company/CompanyCalloutService"
+import CompanyHeroBannerService from './service/company/CompanyHeroBannerService'
+import CompanyTwoColumnSimpleService from './service/company/CompanyTwoColumnSimpleService'
+import CompanyTwoColumnTextService from './service/company/CompanyTwoColumnTextService'
+import CompanyClientSectionService from './service/company/CompanyClientSectionService'
+import CompanyCalloutService from './service/company/CompanyCalloutService'
 
 export default class Company {
   constructor() {
