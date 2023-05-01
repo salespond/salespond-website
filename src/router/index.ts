@@ -7,6 +7,7 @@ import TrainingView from '../views/TrainingView.vue'
 import CompanyView from '../views/CompanyView.vue'
 import BlogView from '../views/BlogView.vue'
 import ContactUsView from '../views/ContactUsView.vue'
+import BlogArticle from '../views/BlogArticle.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: '/contact-us',
       name: 'contact_us',
       component: ContactUsView
+    },
+    {
+      path: '/blog/:id',
+      name: 'blog_arctile',
+      component: BlogArticle
     }
   ]
 })
