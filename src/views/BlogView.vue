@@ -32,7 +32,9 @@
     <section class="w-full bg-gray-100 py-[100px]">
       <div class="s-container relative">
         <div class="blog-nav grid grid-cols-1 lg:grid-cols-2 gap-4 h-[48px] mb-[80px]">
-          <div class="flex flex-row justify-between lg:justify-start lg:space-x-[45px] items-center">
+          <div
+            class="flex flex-row justify-between lg:justify-start lg:space-x-[45px] items-center"
+          >
             <div
               class="px-1 transition-all duration-100 cursor-pointer border-b-4 border-gray-100 hover:border-primary"
             >
@@ -69,7 +71,9 @@
                 <img src="/public/assets/callout.png" class="w-full" />
               </div>
               <div class="content mb-[25px]">
-                <p class="text-primary text-sm mb-[15px] leading-none">{{ _.get(blog, 'articleInfo.readingTime') }}</p>
+                <p class="text-primary text-sm mb-[15px] leading-none">
+                  {{ _.get(blog, 'articleInfo.readingTime') }}
+                </p>
                 <div class="max-h-[70px] overflow-hidden mb-[15px] min-h-[60px]">
                   <p class="text-lg text-gray-700">
                     {{ _.get(blog, 'banner_text') }}
@@ -131,14 +135,11 @@ export default {
       imagePanel: {}
     })
 
-    const allBlogs= ref()
-    const blogList= ref()
+    const allBlogs = ref()
+    const blogList = ref()
     const blogCateg = ref()
-    const loadingArticles = ref(true)
 
     resource.getAllData().then((data: any) => {
-      console.info(data)
-
       pageBanner.bannerLabel = data.heroBanner.banner_label!
       pageBanner.bannerText = data.heroBanner.banner_text!
       pageBanner.subheaderText = data.heroBanner.subheader_text!
@@ -165,9 +166,7 @@ export default {
       const slug = details.toLowerCase().replace(/\s+/g, '-')
       const url = '/blog/' + key + '/' + slug
 
-      console.info(url)
-
-      // router.push(url)
+      router.push(url)
     }
 
     return {

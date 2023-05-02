@@ -1,7 +1,7 @@
-import ResourcesHeroBannerService from "./service/resources/ResourcesHeroBannerService"
-import ResourcesCalloutService from "./service/resources/ResourcesCalloutService"
-import ResourcesBlogListService from "./service/resources/ResourcesBlogListService"
-import BlogCategoryService from "./service/blog/BlogCategoryService"
+import ResourcesHeroBannerService from './service/resources/ResourcesHeroBannerService'
+import ResourcesCalloutService from './service/resources/ResourcesCalloutService'
+import ResourcesBlogListService from './service/resources/ResourcesBlogListService'
+import BlogCategoryService from './service/blog/BlogCategoryService'
 
 export default class Resource {
   constructor() {
@@ -21,7 +21,7 @@ export default class Resource {
       heroBanner,
       callout,
       blogList,
-      blogCategory,
+      blogCategory
     }
   }
 

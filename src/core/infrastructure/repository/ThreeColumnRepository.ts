@@ -5,9 +5,7 @@ export default class ThreeColumnRepository {
 
   async fetch() {
     const results = await new QueryBuilder()
-      .buildQuery(this.contentName, [
-        'threeColumnSection'
-      ])
+      .buildQuery(this.contentName, ['threeColumnSection'])
       .process()
 
     return results.getResultInfo()
