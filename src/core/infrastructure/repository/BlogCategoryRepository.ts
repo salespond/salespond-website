@@ -1,11 +1,9 @@
 import QueryBuilder from '../QueryBuilder'
 
-export default class ThreeColumnRepository {
-  constructor(protected contentName: string) {}
-
+export default class BlogCategoryRepository {
   async fetch() {
     const results = await new QueryBuilder()
-      .buildQuery(this.contentName, ['threeColumnSection'])
+      .rawQuery(`*[_type == 'blogCategory'] { _id, 'category': blog_category }`)
       .process()
 
     return results.getResultInfo()

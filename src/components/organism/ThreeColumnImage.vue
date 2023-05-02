@@ -13,7 +13,10 @@
             {{ item.value.contentTitle }}
           </h3>
 
-          <div class="text-neutral-2 apercu-light prose" v-html="toHTML(item.value.contentText)"></div>
+          <div
+            class="text-neutral-2 apercu-light prose"
+            v-html="toHTML(item.value.contentText)"
+          ></div>
         </div>
       </div>
     </div>
