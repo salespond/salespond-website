@@ -183,7 +183,6 @@ export default {
 
     const company = new Company()
     company.getAllData().then((data: any) => {
-      console.info(data)
       banner.bannerLabel = data.heroBanner.banner_label!
       banner.bannerText = data.heroBanner.banner_text!
       banner.subheaderText = data.heroBanner.subheader_text!
@@ -199,7 +198,6 @@ export default {
 
       twoColumnStory.bannerLabel = data.twoColumnText.banner_label!
       twoColumnStory.bannerText = data.twoColumnText.banner_text!
-      // twoColumnStory.subheaderText = data.twoColumnText.subheader_text!
       twoColumnStory.textHighlight = data.twoColumnText.text_highlight!
       twoColumnStory.twoColumnSection = data.twoColumnText.twoColumnSection!
 
