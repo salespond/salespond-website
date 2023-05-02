@@ -1,24 +1,19 @@
 <template>
   <div>
-    <div v-if="banner" class="three-column-section w-full">
+    <div v-if="items.length >= 1" class="three-column-section w-full">
       <div class="flex flex-col lg:flex-row lg:gap-x-10 gap-y-10 mb-10">
-        <div v-for="(item, id) in items" :key="id" class="flex-1">
-          <template v-if="item.imagePanel">
+        <div v-for="(item, id) in [...items]" :key="id" class="flex-1">
+          <template v-if="item.value.image_panel">
             <img
               class="rounded-full overflow-hidden w-full max-w-[152px] max-h-[152px] mb-[20px]"
-              src="/public/assets/sales_chart.png"
+              :src="parseSanityImage(item.value.image_panel).url()"
             />
           </template>
           <h3 class="text-black font-bold mb-[20px]">
-            {{ item.contentTitle }}
+            {{ item.value.contentTitle }}
           </h3>
 
-          <div class="text-neutral-2 apercu-light prose">
-            <p class="text-gray-500">
-              Uplift productivity and boost morale with friendly competitions to keep inside sales
-              teams hitting their KPIs.
-            </p>
-          </div>
+          <div class="text-neutral-2 apercu-light prose" v-html="toHTML(item.value.contentText)"></div>
         </div>
       </div>
     </div>
@@ -27,6 +22,7 @@
 
 <script lang="ts">
 import { toRefs } from 'vue'
+import { toHTML } from '@portabletext/to-html'
 import { parseSanityImage } from '@/js/composable/parseSanityImage'
 
 export default {
@@ -106,7 +102,8 @@ export default {
       highlight: textHighlight,
       items: columnItems,
       parseSanityImage,
-      isSimple
+      isSimple,
+      toHTML
     }
   }
 }
