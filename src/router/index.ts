@@ -8,6 +8,9 @@ import CompanyView from '../views/CompanyView.vue'
 import BlogView from '../views/BlogView.vue'
 import ContactUsView from '../views/ContactUsView.vue'
 import BlogArticle from '../views/BlogArticle.vue'
+import TermsOfUseView from '../views/TermsOfUseView.vue'
+import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
+import CookiesView from '../views/CookiesView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,7 +59,22 @@ const router = createRouter({
       path: '/blog/:id',
       name: 'blog_arctile',
       component: BlogArticle
-    }
+    },
+    {
+      path: '/terms-of-use',
+      name: 'terms_of_use',
+      component: TermsOfUseView
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy_policy',
+      component: PrivacyPolicyView
+    },
+    {
+      path: '/cookies',
+      name: 'cookies',
+      component: CookiesView
+    },
   ]
 })
 
