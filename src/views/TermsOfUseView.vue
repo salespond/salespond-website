@@ -1,6 +1,6 @@
 <template>
   <div class="page-content">
-    <div class="s-container ">
+    <div class="s-container">
       <template v-if="pageInfo">
         <section class="mx-auto px-[25px] mt-[88px] lg:mt-[200px] md:mb-[50px] mb-[50px]">
           <simple-banner-title :pageTitle="pageInfo.pageBanner" :customClass="'mb-[20px]'" />
@@ -15,10 +15,13 @@
         <section class="flex flex-row pb-[100px]">
           <div class="flex-none w-[350px]">
             <aside class="w-full border-r" aria-label="Sidebar">
-              <div class=" py-4 px-3 rounded w-full">
+              <div class="py-4 px-3 rounded w-full">
                 <ul class="space-y-2">
-                  <li v-for="(item, key) in contentItems" :key="key" >
-                    <div @click="scrollTo(item.link)" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100 cursor-pointer">
+                  <li v-for="(item, key) in contentItems" :key="key">
+                    <div
+                      @click="scrollTo(item.link)"
+                      class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100 cursor-pointer"
+                    >
                       <span class="ml-3">{{ item.data }}</span>
                     </div>
                   </li>
@@ -35,7 +38,7 @@
         </section>
       </template>
       <template v-else>
-        <section class=" h-screen flex items-center">
+        <section class="h-screen flex items-center">
           <full-text-loading />
         </section>
       </template>
@@ -53,15 +56,15 @@ import TermsOfUse from '@/core/application/TermsOfUse'
 import Image from '@/components/atom/serializer/Image.vue'
 
 interface UtilityPageModel {
-  bannerText?: string,
-  subheaderText?: object,
-  pageContent?: object,
+  bannerText?: string
+  subheaderText?: object
+  pageContent?: object
 }
 
 export default {
   components: {
     SimpleBannerTitle,
-    FullTextLoading,
+    FullTextLoading
   },
   setup() {
     const open = ref(false)
@@ -92,14 +95,14 @@ export default {
 
       const myPortableTextComponents = {
         types: {
-          image: ({ value }: any) => "<img src=" + parseSanityImage(value.asset).url() + " />"
-        },
+          image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset).url() + ' />'
+        }
       }
 
       portableText.value = toHTML(data.pageContent, { components: myPortableTextComponents })
 
       await nextTick()
-      const heading = document.getElementsByTagName("h2")
+      const heading = document.getElementsByTagName('h2')
       contentItems.forEach((value: { data?: string }, index) => {
         heading[index].setAttribute('id', _.kebabCase(value.data))
       })
@@ -108,14 +111,14 @@ export default {
     const scrollTo = (link: any) => {
       document.querySelector(link).scrollIntoView({
         behavior: 'smooth'
-      });
+      })
     }
 
     const serializers = {
       types: {
         image: Image
-      },
-    };
+      }
+    }
 
     return {
       open,
@@ -123,17 +126,17 @@ export default {
       contentItems,
       scrollTo,
       serializers,
-      portableText,
+      portableText
     }
   }
 }
 </script>
 <style scoped>
 .prose :where(a) {
-  @apply text-primary
+  @apply text-primary;
 }
 
 .prose :where(p) {
-  @apply mb-[20px]
+  @apply mb-[20px];
 }
 </style>
