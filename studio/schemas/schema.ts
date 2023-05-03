@@ -15,6 +15,7 @@ import blogResource from "./document/blogResource"
 import bannerSimple from "./document/bannerSimple"
 import blogArticlePage from "./document/blogArticlePage"
 import blogCategory from "./includes/blogCategory"
+import utilityPage from "./document/utilityPage"
 
 export default [
     banner,
@@ -33,5 +34,6 @@ export default [
     blogResource,
     bannerSimple,
     blogArticlePage,
-    blogCategory
+    blogCategory,
+    utilityPage
 ]

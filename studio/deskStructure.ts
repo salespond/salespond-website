@@ -254,4 +254,22 @@ export default (S: any) =>
                 ),
             ])
         ),
+
+      S.divider(),
+
+      S.listItem()
+        .title("Privacy Policy")
+        .child(
+          S.document().schemaType('utilityPage').documentId('utility_privacyPolicy')
+        ),
+      S.listItem()
+        .title("Terms of Use")
+        .child(
+          S.document().schemaType('utilityPage').documentId('utility_termsOfUse')
+        ),
+      S.listItem()
+        .title("Cookies")
+        .child(
+          S.document().schemaType('utilityPage').documentId('utility_cookies')
+        ),
     ])
