@@ -13,10 +13,12 @@
           :image="pageBanner.imagePanel"
         />
       </div>
+      
     </section>
 
     <section class="article bg-white py-[50px] lg:py-[100px]">
       <div class="xs-container">
+        <div class="max-w-[65ch] mx-auto mb-5 text-gray-700">{{ formatTags(tags) }}</div>
         <div class="prose mx-auto" v-html="portableText"></div>
       </div>
     </section>
@@ -188,7 +190,7 @@ export default {
           articleCategory.value = data.blog_category
         })
 
-        tags.value = data.blogs[0].tags!
+        tags.value = data.blogs[0].articleInfo.tags!
       })
     }
 
@@ -230,7 +232,8 @@ export default {
     }
 
     const formatTags = (tags: string) => {
-      return tags.replaceAll(',', ' ')
+      // return tags.replaceAll(',', ' ')
+      return tags.split(',').join('')
     }
 
     return {
