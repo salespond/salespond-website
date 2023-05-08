@@ -1,5 +1,5 @@
 <template>
-  <p class="text-gray-500 mb-[20px] prose" v-html="toHTML(description)"></p>
+  <div class="mb-[20px] prose" v-html="toHTML(description)"></div>
 </template>
 <script lang="ts">
 import { inject } from 'vue'
@@ -16,4 +16,8 @@ export default {
   }
 }
 </script>
-<style lang=""></style>
+<style scoped>
+.prose :where(.prose > :last-child):not(:where([class~='not-prose'] *)) {
+  @apply text-gray-400
+}
+</style>

@@ -56,6 +56,7 @@
               <div
                 v-html="contentChange(get(info, 'block_content'))"
                 class="prose info-content"
+                :class="{ 'isDark': !get(info, 'image_section.image_location_toggle') }"
               ></div>
             </div>
           </div>
@@ -171,8 +172,16 @@ export default {
     })
 
     const contentChange = (content: any) => {
-      const rawHtml = toHTML(content)
-      const needle = new RegExp('<h4>', 'g')
+      const myPortableTextComponents = {
+          types: {
+            image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset) + ' />'
+          }
+        }
+
+        const rawHtml = toHTML(content, {
+          components: myPortableTextComponents
+        })
+
       return rawHtml
         .split('<h4>')
         .join('<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">')

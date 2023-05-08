@@ -3,7 +3,7 @@
     class="min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center"
   >
     <ColumnImage :image-src="src" />
-    <ColumnDetails :cta1="button1" :cta2="button2" />
+    <ColumnDetails :cta1="button1" :cta2="button2" :class="{ 'order-first': isLocatedRight }" />
   </div>
 </template>
 <script lang="ts">

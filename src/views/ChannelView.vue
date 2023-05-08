@@ -171,14 +171,19 @@ export default {
     })
 
     const contentChange = (content: any) => {
-      const rawHtml = toHTML(content)
+      const myPortableTextComponents = {
+          types: {
+            image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset) + ' />'
+          }
+        }
+
+        const rawHtml = toHTML(content, {
+          components: myPortableTextComponents
+        })
+
       return rawHtml
         .split('<h4>')
         .join('<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">')
-      // return rawHtml.replaceAll(
-      //   '<h4>',
-      //   '<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">'
-      // )
     }
 
     return {
