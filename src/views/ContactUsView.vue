@@ -12,26 +12,25 @@
           <three-column-image :column-items="threeColumn" />
         </suspense> -->
         <div v-if="threeColumn" class="three-column-section w-full">
-      <div class="flex flex-col lg:flex-row lg:gap-x-10 gap-y-10 mb-10">
-        <div v-for="(item, id) in threeColumn" :key="id" class="flex-1">
-          
-          <template v-if="item.image_panel">
-            <img
-              class="rounded-full overflow-hidden w-full max-w-[152px] max-h-[152px] mb-[20px]"
-              :src="parseSanityImage(item.image_panel).url()"
-            />
-          </template>
-          <h3 class="text-black font-bold mb-[20px]">
-            {{ item.contentTitle }}
-          </h3>
+          <div class="flex flex-col lg:flex-row lg:gap-x-10 gap-y-10 mb-10">
+            <div v-for="(item, id) in threeColumn" :key="id" class="flex-1">
+              <template v-if="item.image_panel">
+                <img
+                  class="rounded-full overflow-hidden w-full max-w-[152px] max-h-[152px] mb-[20px]"
+                  :src="parseSanityImage(item.image_panel).url()"
+                />
+              </template>
+              <h3 class="text-black font-bold mb-[20px]">
+                {{ item.contentTitle }}
+              </h3>
 
-          <div
-            class="text-neutral-2 apercu-light prose"
-            v-html="toHTML(item.contentText)"
-          ></div>
+              <div
+                class="text-neutral-2 apercu-light prose"
+                v-html="toHTML(item.contentText)"
+              ></div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
       </div>
     </section>
 
@@ -102,8 +101,6 @@ export default {
         data.threeColumn.threeColumnSection.columnSection3!
       ]
     })
-
-    
 
     return {
       threeColumn: columnItems,

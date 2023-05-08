@@ -9,7 +9,9 @@
   --vt-c-black-mute: #282828;
 }
 
-[v-cloak] { display:none; }
+[v-cloak] {
+  display: none;
+}
 
 /* @font-face {
   font-family: 'apercu';
@@ -192,5 +194,5 @@ footer {
 }
 
 .prose .border-primary {
-  border-color: #FF9600!important;
+  border-color: #ff9600 !important;
 }

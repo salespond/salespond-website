@@ -172,7 +172,9 @@ export default {
 
     const contentChange = (content: any) => {
       const rawHtml = toHTML(content)
-      return rawHtml.split("<h4>").join('<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">')
+      return rawHtml
+        .split('<h4>')
+        .join('<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">')
       // return rawHtml.replaceAll(
       //   '<h4>',
       //   '<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">'

@@ -2,7 +2,6 @@
 import { RouterView } from 'vue-router'
 import NavMenu from './components/molecule/NavMenu.vue'
 import FooterMenu from './components/molecule/FooterMenu.vue'
-
 </script>
 
 <template>

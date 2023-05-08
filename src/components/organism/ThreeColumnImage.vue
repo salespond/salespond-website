@@ -3,7 +3,6 @@
     <div v-if="items.length >= 1" class="three-column-section w-full">
       <div class="flex flex-col lg:flex-row lg:gap-x-10 gap-y-10 mb-10">
         <div v-for="(item, id) in items" :key="id" class="flex-1">
-          
           <template v-if="item.value.image_panel">
             <img
               class="rounded-full overflow-hidden w-full max-w-[152px] max-h-[152px] mb-[20px]"

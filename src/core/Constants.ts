@@ -4,9 +4,9 @@ export const CONTACT_FORM_API_URL = 'https://dev.back.datalist.io/podiem/registe
 export const SUBSCRIBE_FORM_API_URL = 'https://dev.back.datalist.io/podiem/subscribe'
 
 export const CONTACT_FORM_API_SETTINGS = {
-    headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-    }
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+  }
 }

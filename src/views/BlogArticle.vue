@@ -16,7 +16,7 @@
     </section>
 
     <section class="article bg-white py-[50px] lg:py-[100px]">
-      <div class="xs-container ">
+      <div class="xs-container">
         <div class="prose mx-auto" v-html="portableText"></div>
       </div>
     </section>
@@ -34,10 +34,12 @@
               class="bg-white rounded-3xl p-[40px] shadow-lg hover:shadow-2xl transition-all duration-100 border border-gray-100"
             >
               <div class="image w-full mb-[20px]">
-                <img :src="parseSanityImage(featured['image_panel']).url()">
+                <img :src="parseSanityImage(featured['image_panel']).url()" />
               </div>
               <div class="content mb-[25px]">
-                <p class="text-primary text-sm mb-[15px] leading-none">{{ _.get(featured['articleInfo'], 'readingTime') }}</p>
+                <p class="text-primary text-sm mb-[15px] leading-none">
+                  {{ _.get(featured['articleInfo'], 'readingTime') }}
+                </p>
                 <div class="max-h-[70px] overflow-hidden mb-[15px] min-h-[60px]">
                   <p class="text-lg text-gray-700">
                     {{ featured['banner_text'] }}
@@ -46,7 +48,8 @@
               </div>
 
               <div>
-                <button @click="goToArticle(featured['banner_text'], featured['_key'])"
+                <button
+                  @click="goToArticle(featured['banner_text'], featured['_key'])"
                   class="border border-primary rounded-full text-primary hover:text-white hover:bg-primary py-2 px-[25px] text-[16px]"
                 >
                   Read more
@@ -80,177 +83,177 @@ export default {
   setup() {
     const paramId = computed(() => route.params.id)
     const store = useStore()
-        const route = useRoute();
-        const router = useRouter();
-        const key = route.params.id.toString()
+    const route = useRoute()
+    const router = useRouter()
+    const key = route.params.id.toString()
 
-        console.info(key)
+    console.info(key)
 
-        // console.info(store.getters['blog_category/GET_category'])
-        const pageBanner = reactive({
-          bannerLabel: '',
-          bannerText: '',
-          textHighlight: '',
-          subheaderText: '',
-          ctaEnabled: false,
-          ctaText: '',
-          ctaRedirection: '',
-          imagePanel: {}
+    // console.info(store.getters['blog_category/GET_category'])
+    const pageBanner = reactive({
+      bannerLabel: '',
+      bannerText: '',
+      textHighlight: '',
+      subheaderText: '',
+      ctaEnabled: false,
+      ctaText: '',
+      ctaRedirection: '',
+      imagePanel: {}
+    })
+
+    // const inPageBanner = reactive({
+    //     bannerLabel: '',
+    //     bannerText: '',
+    //     subheaderText: '',
+    //     textHighlight: '',
+    //     imagePanel: {},
+    // })
+
+    const author = ref('')
+    const publishingDate = ref('')
+
+    const blogContent = ref({})
+
+    const footerCallout = reactive({
+      bannerText: '',
+      textHighlight: '',
+      calloutImage: {},
+      ctaDetails: {}
+    })
+
+    const blogCategory = ref([])
+    new BlogCategoryService().process().then((data: any) => {
+      blogCategory.value = data.map((result: any) => {
+        return result.category
+      })
+    })
+
+    const articleKey = ref('')
+    const articleCategory = ref('')
+    const featuredArticles = ref([])
+    const portableText = ref('')
+    const tags = ref('')
+    const indexKey = ref('')
+    const categoryKey = ref('')
+
+    const limit = ref(3)
+    const article = new ArticleService()
+    article.setKey(key)
+    const loadData = () => {
+      article.process().then((data: any) => {
+        console.info(data)
+        pageBanner.bannerLabel = data.blogs[0].articleInfo.readingTime! // change this
+        pageBanner.bannerText = data.blogs[0].banner_text!
+        pageBanner.subheaderText = data.blogs[0].articleInfo.readingTime!
+        pageBanner.textHighlight = data.blogs[0].text_highlight!
+        pageBanner.imagePanel = data.blogs[0].image_panel!
+
+        author.value = data.blogs[0].articleInfo.publishedBy!
+        publishingDate.value = data.blogs[0].articleInfo.datePosted!
+
+        blogContent.value = data.blogs[0].articleInfo.blogContent!
+
+        articleKey.value = data.blogs[0]._key!
+
+        footerCallout.bannerText = data.blogs[0].footerCallout.banner_text!
+        footerCallout.textHighlight = data.blogs[0].footerCallout.text_highlight!
+        footerCallout.calloutImage = data.blogs[0].footerCallout.image_panel!
+        footerCallout.ctaDetails = {
+          cta_enabled: data.blogs[0].footerCallout.cta_enabled!,
+          cta_text: data.blogs[0].footerCallout.cta_text!,
+          cta_redirection: data.blogs[0].footerCallout.cta_redirection!
+        }
+
+        const myPortableTextComponents = {
+          types: {
+            image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset) + ' />'
+          }
+        }
+
+        portableText.value = toHTML(data.blogs[0].articleInfo.blogContent!, {
+          components: myPortableTextComponents
         })
 
-        // const inPageBanner = reactive({
-        //     bannerLabel: '',
-        //     bannerText: '',
-        //     subheaderText: '',
-        //     textHighlight: '',
-        //     imagePanel: {},
-        // })
+        indexKey.value = data.blogs[0]._key!
+        categoryKey.value = data.blogs[0].articleInfo.blogCategoryOption._ref!
 
-        const author = ref('')
-        const publishingDate = ref('')
+        article
+          .retrieveFeaturedArticle(categoryKey.value, indexKey.value, limit.value)
+          .then((data: any) => {
+            featuredArticles.value = data.blogs
+            showMore()
+          })
 
-        const blogContent = ref({})
-
-        const footerCallout = reactive({
-            bannerText: '',
-            textHighlight: '',
-            calloutImage: {},
-            ctaDetails: {},
+        article.retrieveSpecificCategory(categoryKey.value).then((data: any) => {
+          articleCategory.value = data.blog_category
         })
-        
-        const blogCategory = ref([])
-        new BlogCategoryService().process()
+
+        tags.value = data.blogs[0].tags!
+      })
+    }
+
+    loadData()
+
+    const serializers = {
+      types: {
+        image: Image
+      }
+    }
+
+    const goToArticle = (details: string, key: number) => {
+      console.info('dent', details)
+      const slug = details.toLowerCase().replace(/\s+/g, '-')
+      const url = '/blog/' + key + '/' + slug
+
+      router.push(url)
+      setTimeout(() => {
+        location.reload()
+      }, 200)
+    }
+
+    const showMore = () => {
+      limit.value += 3
+    }
+
+    const moveToResources = () => {
+      article
+        .retrieveFeaturedArticle(categoryKey.value, indexKey.value, limit.value)
         .then((data: any) => {
-          
-            blogCategory.value = data.map((result: any) => {
-              return result.category
-            })
+          featuredArticles.value = data.blogs
+          showMore()
         })
+    }
 
-        const articleKey = ref('')
-        const articleCategory = ref('')
-        const featuredArticles = ref([])
-        const portableText = ref('')
-        const tags = ref('')
-        const indexKey = ref('')
-        const categoryKey = ref('')
+    const formatDate = (dateString: string) => {
+      const date = dayjs(dateString)
+      return date.format('MMMM D, YYYY')
+    }
 
-      
-        const limit = ref(3)
-        const article = new ArticleService()
-        article.setKey(key)
-        const loadData = () => {
-            article.process().then((data: any) => {
-              console.info(data)
-                pageBanner.bannerLabel = data.blogs[0].articleInfo.readingTime! // change this
-                pageBanner.bannerText = data.blogs[0].banner_text!
-                pageBanner.subheaderText = data.blogs[0].articleInfo.readingTime!
-                pageBanner.textHighlight = data.blogs[0].text_highlight!
-                pageBanner.imagePanel = data.blogs[0].image_panel!
+    const formatTags = (tags: string) => {
+      return tags.replaceAll(',', ' ')
+    }
 
-                author.value = data.blogs[0].articleInfo.publishedBy!
-                publishingDate.value = data.blogs[0].articleInfo.datePosted!
-
-                blogContent.value = data.blogs[0].articleInfo.blogContent!
-
-                articleKey.value = data.blogs[0]._key!
-
-                footerCallout.bannerText = data.blogs[0].footerCallout.banner_text!
-                footerCallout.textHighlight = data.blogs[0].footerCallout.text_highlight!
-                footerCallout.calloutImage = data.blogs[0].footerCallout.image_panel!
-                footerCallout.ctaDetails = {
-                    'cta_enabled': data.blogs[0].footerCallout.cta_enabled!,
-                    'cta_text': data.blogs[0].footerCallout.cta_text!,
-                    'cta_redirection': data.blogs[0].footerCallout.cta_redirection!
-                }
-
-                const myPortableTextComponents = {
-                    types: {
-                        image: ({value}: any) => "<img src=" + parseSanityImage(value.asset) + " />"
-                    },
-                }
-
-                portableText.value = toHTML(data.blogs[0].articleInfo.blogContent!, {components: myPortableTextComponents})
-
-                indexKey.value = data.blogs[0]._key!
-                categoryKey.value = data.blogs[0].articleInfo.blogCategoryOption._ref!
-
-                article.retrieveFeaturedArticle(categoryKey.value, indexKey.value, limit.value)
-                .then((data: any) => {
-                    featuredArticles.value = data.blogs
-                    showMore()
-                })
-
-                article.retrieveSpecificCategory(categoryKey.value)
-                .then((data: any) => {
-                    articleCategory.value = data.blog_category
-                })
-
-                tags.value = data.blogs[0].tags!
-            })
-        }
-
-        loadData()
-
-        const serializers = {
-            types: {
-                image: Image
-            },
-        };
-
-        const goToArticle = (details: string, key: number) => {
-          console.info('dent', details)
-            const slug = details.toLowerCase().replace(/\s+/g, '-')
-            const url = '/blog/' + key + '/' + slug
-
-            router.push(url)
-            setTimeout(() => {
-                location.reload()
-            }, 200);
-        }
-
-        const showMore = () => {
-            limit.value += 3
-        }
-       
-        const moveToResources = () => {
-            article.retrieveFeaturedArticle(categoryKey.value, indexKey.value, limit.value)
-            .then((data: any) => {
-                featuredArticles.value = data.blogs
-                showMore()
-            })
-        }
-
-        const formatDate = (dateString: string) => {
-            const date = dayjs(dateString)
-            return date.format('MMMM D, YYYY')
-        }
-
-        const formatTags = (tags: string) => {
-            return tags.replaceAll(',', ' ')
-        }
-
-        return {
-            pageBanner,
-            blogCategory,
-            blogContent,
-            serializers,
-            footerCallout,
-            featuredArticles,
-            parseSanityImage,
-            articleKey,
-            articleCategory,
-            goToArticle,
-            moveToResources,
-            author,
-            publishingDate,
-            formatDate,
-            portableText,
-            tags,
-            formatTags,
-            limit,
-            _
-        }
+    return {
+      pageBanner,
+      blogCategory,
+      blogContent,
+      serializers,
+      footerCallout,
+      featuredArticles,
+      parseSanityImage,
+      articleKey,
+      articleCategory,
+      goToArticle,
+      moveToResources,
+      author,
+      publishingDate,
+      formatDate,
+      portableText,
+      tags,
+      formatTags,
+      limit,
+      _
+    }
   }
 }
 </script>
