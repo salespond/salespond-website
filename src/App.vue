@@ -5,17 +5,19 @@ import FooterMenu from './components/molecule/FooterMenu.vue'
 </script>
 
 <template>
-  <header>
-    <NavMenu />
-  </header>
-  <main>
-    <Suspense>
-      <RouterView />
-    </Suspense>
-  </main>
-  <footer>
-    <FooterMenu />
-  </footer>
+  <div class="min-h-screen" v-cloak>
+    <header>
+      <NavMenu />
+    </header>
+    <main>
+      <router-view v-slot="{ Component }">
+        <transition appear enter-active-class="animate__animated animate__fadeIn">
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
+    </main>
+    <footer>
+      <FooterMenu />
+    </footer>
+  </div>
 </template>
-
-<style scoped></style>
