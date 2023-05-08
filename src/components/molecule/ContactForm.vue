@@ -1,6 +1,31 @@
 <template>
-  <form class="bg-white px-[20px] lg:px-[30px] py-[50px] rounded-xl shadow-lg">
-    <div class="flex flex-col gap-5 lg:flex-row mb-6">
+  <div class="bg-white px-[20px] lg:px-[30px] py-[50px] rounded-xl shadow-lg">
+    <template v-if="sending">
+      <div class="h-[400px] flex flex-col items-center justify-center">
+          <spinner
+              :inverted="false"
+          />
+          <p class="mt-2 text-neutral-1">Sending...</p>
+      </div>
+    </template>
+    <template v-else>
+      <template v-if="sent">
+          <template v-if="error.status">
+              <danger-alert :text="error.message" />
+          </template>
+        <template v-else>
+          <div class="h-[400px] flex flex-col items-center justify-center ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-16 h-16 text-green-600">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="mt-2 text-2xl font-bold ">Thank you!</h2>
+            <p class="apercu-light px-5 text-center text-neutral-1 mb-5">Your message has been sent successfully!</p>
+            <p class="text-neutral-3 text-xs">Reloading in {{ closingCountdown }}</p>
+          </div>
+        </template>
+      </template>
+      <template v-else>
+        <div class="flex flex-col gap-5 lg:flex-row mb-6">
       <InputField
         v-model="formInputs.firstName"
         type="text"
@@ -23,6 +48,17 @@
         id="email"
         placeholder-text="Email address"
         :required="true"
+      />
+    </div>
+    <div class="flex flex-col gap-5 lg:flex-row mb-6">
+      <input-field 
+          v-model="formInputs.jobTitle"
+          :hasError="formError.jobTitle"
+          :errorMessage="formErrorMessage.jobTitle"
+          class="flex-1" 
+          placeholderText="Job Title"
+          id="job_title"
+          @input="checkFields()"
       />
     </div>
     <div class="flex flex-col gap-5 lg:flex-row mb-6">
@@ -52,6 +88,8 @@
     <div class="flex items-start mb-6">
       <div class="flex items-center h-5">
         <input
+          v-model="formInputs.gdpr"
+          @update:checked="checkFields()"
           id="remember"
           type="checkbox"
           value=""
@@ -64,7 +102,12 @@
         Podiem.</label
       >
     </div>
-    <ButtonPrimary class="w-full mb-6" text="Submit" />
+    <button
+    @click="sendInquiry()"
+    class="w-fit bg-primary rounded-full h-[43px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90"
+  >
+  Submit
+  </button>
 
     <div>
       <p class="text-sm text-gray-400">
@@ -72,34 +115,154 @@
         <a href="#" class="text-primary underline">Privacy Policy.</a>
       </p>
     </div>
-  </form>
+      </template>
+    </template>
+    
+  </div>
 </template>
 <script lang="ts">
-import { reactive } from 'vue'
-import ButtonPrimary from '../atom/button/ButtonPrimary.vue'
-import InputField from '../atom/input/InputField.vue'
-
+import { ref, reactive } from 'vue'
+import { isValidEmail } from '@/js/composable/validateEmail'
+import InputField from '@/components/atom/input/InputField.vue'
+import isOk from '@/core/domain/specification/isOk'
+import ContactFormDto from '@/core/domain/dto/ContactFormDto'
+import SendContactForm from '@/core/application/SendContactForm'
+import DangerAlert from '@/components/atom/alerts/DangerAlert.vue'
+import Spinner from '@/components/atom/loading/Spinner.vue'
+    
 export default {
-  components: {
-    ButtonPrimary,
-    InputField
-  },
-  setup() {
-    const formInputs = reactive({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNumber: '',
-      companyName: '',
-      jobTitle: '',
-      message: '',
-      gdpr: false
-    })
+    name: 'ContactForm',
+    components: {
+      InputField,
+      DangerAlert,
+      Spinner
+    },
+    props: {
+        formOrigin: {
+            type: String,
+        }
+    },
+    setup() {
+        const submittedOnce = ref(false)
+        const sending = ref(false)
+        const sent = ref(false)
+        const error = reactive({
+            status: false,
+            message: 'Something went wrong while sending the form.'
+        })
+        const closingCountdown = ref(10) // 10 seconds
 
-    return {
-      formInputs
+        const formInputs = reactive({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phoneNumber: '',
+            companyName: '',
+            jobTitle: '',
+            inquiryCategory: 'Salespond Contact Us',
+            message: '',
+            gdpr: false,
+            requestForm: 'Contact Us'
+        })
+
+        const formError = reactive({
+            firstName: false,
+            lastName: false,
+            email: false,
+            phoneNumber: false,
+            companyName: false,
+            jobTitle: false,
+            inquiryCategory: false,
+            gdpr: false,
+        })
+
+        const formErrorMessage = reactive({
+            firstName: 'First name is required',
+            lastName: 'Last name is required',
+            email: 'Email is required',
+            phoneNumber: 'Phone number is required',
+            companyName: 'Company name is required',
+            jobTitle: 'Job Title is required',
+            inquiryCategory: 'Inquiry category is required',
+            gdpr: 'Please agree to the terms and conditions',
+        })
+
+        const checkFields = () => {
+            if(submittedOnce.value) {
+                Object.entries(formInputs).forEach(([key, item]) => {
+                    formError[key as keyof typeof formError] = false
+                    if ((item === '' || !item) && key !== 'message') {
+                        formError[key as keyof typeof formError] = true
+                    }
+                    if (key === 'email') {
+                        if (!isValidEmail(item) && item !== '') {
+                            formError[key as keyof typeof formError] = true
+                            formErrorMessage[key as keyof typeof formErrorMessage] = 'Invalid email address provided'
+                        }
+                    }
+                })
+            }
+        }
+
+        const sendInquiry = async () => {
+          
+            submittedOnce.value = true
+            checkFields()
+            
+            const hasErrors = Object.values(formError).includes(true)
+            console.info(hasErrors)
+            console.info(formError)
+            if (!hasErrors) {
+                sending.value = true
+                const contactFormDto = new ContactFormDto(formInputs)
+                const sendContactForm = new SendContactForm(contactFormDto)
+                const sendForm = await sendContactForm.send()
+
+                if (isOk(sendForm.status)) {
+                    sending.value = false
+                    sent.value = true
+
+                    const counter = setInterval(() => {
+                        closingCountdown.value--
+                    }, 1000)
+
+                    setTimeout(() => {
+                        clearInterval(counter)
+                        location.reload()
+                    }, 10000)
+                } else {
+                    error.status = true
+                }
+            }
+        }
+
+        const dropdownItems = [
+            'Pricing',
+            'Demo',
+            'Partner',
+            'Other',
+        ]
+
+        const isOpenDropdown = ref(false)
+        const openDropdown = () => {
+            isOpenDropdown.value = !isOpenDropdown.value
+        }
+
+        return {
+            sendInquiry,
+            formInputs,
+            formError,
+            formErrorMessage,
+            checkFields,
+            sending,
+            sent,
+            error,
+            closingCountdown,
+            dropdownItems,
+            isOpenDropdown,
+            openDropdown,
+        }
     }
-  }
 }
 </script>
 <style lang=""></style>
