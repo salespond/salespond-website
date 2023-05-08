@@ -244,7 +244,7 @@ export default {
             formError[key as keyof typeof formError] = true
           }
           if (key === 'email') {
-            if (!isValidEmail(item) && item !== '') {
+            if (!isValidEmail(item.toString()) && item !== '') {
               formError[key as keyof typeof formError] = true
               formErrorMessage[key as keyof typeof formErrorMessage] =
                 'Invalid email address provided'
