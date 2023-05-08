@@ -190,3 +190,7 @@ footer {
 .v-leave-to {
   opacity: 0;
 }
+
+.prose .border-primary {
+  border-color: #FF9600!important;
+}
