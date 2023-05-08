@@ -2,10 +2,11 @@
 import { RouterView } from 'vue-router'
 import NavMenu from './components/molecule/NavMenu.vue'
 import FooterMenu from './components/molecule/FooterMenu.vue'
+
 </script>
 
 <template>
-  <div class="min-h-screen" v-cloak>
+  <div>
     <header>
       <NavMenu />
     </header>
@@ -21,3 +22,9 @@ import FooterMenu from './components/molecule/FooterMenu.vue'
     </footer>
   </div>
 </template>
+
+<style scoped>
+main {
+  @apply min-h-screen bg-gradient-to-b from-accent-1 to-accent-2 min-h-screen;
+}
+</style>
