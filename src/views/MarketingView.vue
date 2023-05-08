@@ -173,10 +173,7 @@ export default {
     const contentChange = (content: any) => {
       const rawHtml = toHTML(content)
       const needle = new RegExp('<h4>', 'g')
-      return rawHtml.replaceAll(
-        needle,
-        '<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">'
-      )
+        return rawHtml.split("<h4>").join('<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">')
     }
 
     return {

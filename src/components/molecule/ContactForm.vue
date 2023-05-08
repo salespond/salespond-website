@@ -25,33 +25,44 @@
         </template>
       </template>
       <template v-else>
-        <div class="flex flex-col gap-5 lg:flex-row mb-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-6">
       <InputField
         v-model="formInputs.firstName"
         type="text"
         id="first_name"
+        :hasError="formError.firstName"
+        :errorMessage="formErrorMessage.firstName"
         placeholder-text="First name"
         :required="true"
+        @input="checkFields()"
       />
       <InputField
         v-model="formInputs.lastName"
         type="text"
         id="last_name"
+        :hasError="formError.lastName"
+        :errorMessage="formErrorMessage.lastName"
         placeholder-text="Last name"
         :required="true"
+        @input="checkFields()"
       />
     </div>
-    <div class="flex flex-col gap-5 lg:flex-row mb-6">
+
+    <div class="flex flex-col gap-5 mb-6">
       <InputField
         v-model="formInputs.email"
         type="email"
         id="email"
+        :hasError="formError.email"
+        :errorMessage="formErrorMessage.email"
         placeholder-text="Email address"
         :required="true"
+        @input="checkFields()"
       />
     </div>
+
     <div class="flex flex-col gap-5 lg:flex-row mb-6">
-      <input-field 
+      <InputField
           v-model="formInputs.jobTitle"
           :hasError="formError.jobTitle"
           :errorMessage="formErrorMessage.jobTitle"
@@ -61,32 +72,40 @@
           @input="checkFields()"
       />
     </div>
-    <div class="flex flex-col gap-5 lg:flex-row mb-6">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-6">
       <InputField
         v-model="formInputs.phoneNumber"
         type="text"
         id="phone"
+        :hasError="formError.phoneNumber"
+        :errorMessage="formErrorMessage.phoneNumber"
         placeholder-text="Phone number"
         :required="true"
+        @input="checkFields()"
       />
       <InputField
         v-model="formInputs.companyName"
         type="text"
         id="company"
+        :hasError="formError.companyName"
+        :errorMessage="formErrorMessage.companyName"
         placeholder-text="Company"
         :required="true"
+        @input="checkFields()"
       />
     </div>
     <div class="flex flex-col gap-5 lg:flex-row mb-6">
       <textarea
+        v-model="formInputs.message"
         rows="5"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg resize-none focus:ring-blue-500 focus:border-blue-500 p-2.5 w-full"
         placeholder="Message"
         required
       ></textarea>
     </div>
-    <div class="flex items-start mb-6">
-      <div class="flex items-center h-5">
+    <div class="flex flex-col items-start mb-6">
+      <div class="flex flex-row">
         <input
           v-model="formInputs.gdpr"
           @update:checked="checkFields()"
@@ -96,15 +115,22 @@
           class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
           required
         />
+        <label for="remember" class="ml-2 text-sm font-medium text-gray-700">
+          By checking this box, you are consenting to receive future communication from
+          Salespond.
+        </label>
       </div>
-      <label for="remember" class="ml-2 text-sm font-medium text-gray-700"
-        >By checking this box, you are consenting to receive future communication from
-        Podiem.</label
-      >
+      
+      <div v-if="formError.gdpr" class="flex flex-row items-center mt-1 gap-x-1 pl-1">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.663 1.67065C7.26851 0.509525 8.7311 0.509524 9.33661 1.67065L14.9752 12.4833C15.5987 13.6788 14.8502 15.1998 13.6384 15.1998H2.36118C1.1494 15.1998 0.400923 13.6788 1.02438 12.4833L6.663 1.67065ZM7.1998 9.1998V5.1998H8.7998V9.1998H7.1998ZM7.9998 12.7998C7.33706 12.7998 6.7998 12.2625 6.7998 11.5998C6.7998 10.9371 7.33706 10.3998 7.9998 10.3998C8.66255 10.3998 9.1998 10.9371 9.1998 11.5998C9.1998 12.2625 8.66255 12.7998 7.9998 12.7998Z" fill="#EB5757"/>
+        </svg>
+        <p class="error-message text-red-500 text-xs leading-none">{{ formErrorMessage.gdpr }}</p>
+    </div>
     </div>
     <button
     @click="sendInquiry()"
-    class="w-fit bg-primary rounded-full h-[43px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90"
+    class="w-full mb-2 bg-primary rounded-full h-[43px] px-[25px] text-white tracking-wide transition-all duration-75 hover:opacity-90"
   >
   Submit
   </button>
@@ -112,7 +138,7 @@
     <div>
       <p class="text-sm text-gray-400">
         By submitting your information to our website, you agree to the terms outlined in our
-        <a href="#" class="text-primary underline">Privacy Policy.</a>
+        <a href="/privacy-policy" class="text-primary underline">Privacy Policy.</a>
       </p>
     </div>
       </template>
@@ -205,13 +231,10 @@ export default {
         }
 
         const sendInquiry = async () => {
-          
             submittedOnce.value = true
             checkFields()
             
             const hasErrors = Object.values(formError).includes(true)
-            console.info(hasErrors)
-            console.info(formError)
             if (!hasErrors) {
                 sending.value = true
                 const contactFormDto = new ContactFormDto(formInputs)
