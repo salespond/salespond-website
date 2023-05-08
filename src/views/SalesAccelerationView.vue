@@ -56,6 +56,7 @@
               <div
                 v-html="contentChange(get(info, 'block_content'))"
                 class="prose info-content"
+                :class="{ 'isDark': !get(info, 'image_section.image_location_toggle') }"
               ></div>
             </div>
           </div>
@@ -201,5 +202,16 @@ h4 > strong {
 
 .info-content p {
   margin-bottom: 40px;
+}
+
+.isDark > h1 > strong,
+.isDark > h2 > strong,
+.isDark > h3 > strong,
+.isDark > h4 > strong {
+  color: #fff!important;
+}
+
+.isDark > p {
+  color: #c7c7c7!important;
 }
 </style>
