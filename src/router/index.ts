@@ -78,4 +78,10 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to, from) => {
+  setTimeout(() => {
+    window.scrollTo(0, 0)
+  }, 500)
+})
+
 export default router
