@@ -2,16 +2,16 @@
   <div v-if="banner" class="grid grid-cols-1 lg:grid-cols-2 lg:items-center">
     <div class="py-[80px]">
       <p class="text-sm text-primary font-bold">{{ label }}</p>
-      <h1 class="text-5xl lg:text-7xl font-bold text-white pr-3 mb-2">
+      <h1 class="font-bold text-white pr-3 mb-2" :class="additionalClass">
         {{ banner }}
       </h1>
-      <p class="text-gray-500 mb-[20px]">
+      <p class="text-gray-400 mb-[20px]">
         {{ content }}
       </p>
 
       <ButtonPrimary v-if="ctaEnabled" :text="ctaText" :link-to="ctaRedirection" />
     </div>
-    <img :src="parseSanityImage(image).url()" :alt="image.alt" />
+    <img :src="parseSanityImage(image).url()" :alt="image.alt" class="w-full" width="640" height="360"/>
   </div>
 </template>
 <script lang="ts">
@@ -59,11 +59,18 @@ export default {
           }
         }
       }
+    },
+    bannerSize: {
+      type: String,
+      default: 'default'
     }
   },
-  setup() {
+  setup(props: any) {
+    const additionalClass = props.bannerSize === 'xl' ? 'text-5xl lg:text-8xl' : 'text-5xl lg:text-7xl'
+    
     return {
-      parseSanityImage
+      parseSanityImage,
+      additionalClass
     }
   }
 }

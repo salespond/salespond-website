@@ -1,5 +1,5 @@
 <template>
-  <div class="page-content">
+  <div class="page-content bg-white">
     <div class="s-container">
       <template v-if="pageInfo">
         <section class="mx-auto px-[25px] mt-[88px] lg:mt-[200px] md:mb-[50px] mb-[50px]">

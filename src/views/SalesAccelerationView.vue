@@ -147,10 +147,9 @@ export default {
       ctaRedirection: '',
       imagePanel: {}
     })
-
+    
     const salesAcceleration = new SalesAcceleration()
     salesAcceleration.getAllData().then((data: SalesAccelerationModel) => {
-      console.info(data)
       pageBanner.bannerLabel = data.heroBanner.banner_label!
       pageBanner.bannerText = data.heroBanner.banner_text!
       pageBanner.subheaderText = data.heroBanner.subheader_text!
@@ -169,10 +168,21 @@ export default {
       callout.ctaText = data.callout.cta_text!
       callout.ctaRedirection = data.callout.cta_redirection!
       callout.imagePanel = data.callout.image_panel!
+
+      
     })
 
     const contentChange = (content: any) => {
-      const rawHtml = toHTML(content)
+      const myPortableTextComponents = {
+          types: {
+            image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset) + ' />'
+          }
+        }
+
+        const rawHtml = toHTML(content, {
+          components: myPortableTextComponents
+        })
+
       return rawHtml
         .split('<h4>')
         .join('<h4><hr class="mb-3 border-[3px] border-primary w-[50px]">')
@@ -202,16 +212,5 @@ h4 > strong {
 
 .info-content p {
   margin-bottom: 40px;
-}
-
-.isDark > h1 > strong,
-.isDark > h2 > strong,
-.isDark > h3 > strong,
-.isDark > h4 > strong {
-  color: #fff!important;
-}
-
-.isDark > p {
-  color: #c7c7c7!important;
 }
 </style>

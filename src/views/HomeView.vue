@@ -10,6 +10,7 @@
           :cta-enabled="homeBanner.ctaEnabled"
           :cta-text="homeBanner.ctaText"
           :cta-redirection="homeBanner.ctaRedirection"
+          banner-size="xl"
         />
       </div>
     </section>
