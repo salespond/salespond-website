@@ -46,6 +46,7 @@
               <img
                 :src="parseSanityImage(get(info, 'image_section.image_panel')).url()"
                 :alt="get(info, 'image_section.image_panel.alt')"
+                class="w-full" width="640" height="360"
               />
             </div>
 

@@ -147,11 +147,9 @@ export default {
       ctaRedirection: '',
       imagePanel: {}
     })
-    const portableText = ref('')
-
+    
     const salesAcceleration = new SalesAcceleration()
     salesAcceleration.getAllData().then((data: SalesAccelerationModel) => {
-      console.info(data)
       pageBanner.bannerLabel = data.heroBanner.banner_label!
       pageBanner.bannerText = data.heroBanner.banner_text!
       pageBanner.subheaderText = data.heroBanner.subheader_text!

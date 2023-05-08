@@ -1,6 +1,6 @@
 <template>
   <div class="w-full rounded-xl overflow-hidden mb-[50px]">
-    <img :src="parseSanityImage(image).url()" alt="Sales chart" />
+    <img :src="parseSanityImage(image).url()" :alt="image.alt" class="w-full" width="640" height="360"/>
   </div>
 </template>
 <script lang="ts">

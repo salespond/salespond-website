@@ -68,7 +68,7 @@
               class="bg-white rounded-3xl p-[40px] shadow-lg hover:shadow-2xl transition-all duration-100 border border-gray-100"
             >
               <div class="image w-full mb-[20px]">
-                <img src="/public/assets/callout.png" class="w-full" />
+                <img :src="parseSanityImage(blog.image_panel).url()" class="w-full" width="640" height="360" />
               </div>
               <div class="content mb-[25px]">
                 <p class="text-primary text-sm mb-[15px] leading-none">
@@ -101,6 +101,7 @@
 import * as _ from 'lodash'
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import SubPageHeroBanner from '@/components/organism/SubPageHeroBanner.vue'
 import CalloutBlock from '@/components/organism/CalloutBlock.vue'
 import Resource from '@/core/application/Resource'
@@ -170,6 +171,7 @@ export default {
     }
 
     return {
+      parseSanityImage,
       pageBanner,
       callout,
       allBlogs,
