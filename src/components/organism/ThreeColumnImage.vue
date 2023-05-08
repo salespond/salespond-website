@@ -2,7 +2,8 @@
   <div>
     <div v-if="items.length >= 1" class="three-column-section w-full">
       <div class="flex flex-col lg:flex-row lg:gap-x-10 gap-y-10 mb-10">
-        <div v-for="(item, id) in [...items]" :key="id" class="flex-1">
+        <div v-for="(item, id) in items" :key="id" class="flex-1">
+          
           <template v-if="item.value.image_panel">
             <img
               class="rounded-full overflow-hidden w-full max-w-[152px] max-h-[152px] mb-[20px]"
@@ -24,6 +25,7 @@
 </template>
 
 <script lang="ts">
+import * as _ from 'lodash'
 import { toRefs } from 'vue'
 import { toHTML } from '@portabletext/to-html'
 import { parseSanityImage } from '@/js/composable/parseSanityImage'
@@ -44,7 +46,7 @@ export default {
       default: 'Sample description'
     },
     columnItems: {
-      type: Array,
+      type: Array<any>,
       default() {
         return [
           {
@@ -96,7 +98,6 @@ export default {
   },
   async setup(props: any) {
     const { description, bannerText, textHighlight, columnItems, columnType } = toRefs(props)
-
     const isSimple = columnType.value === 'simple'
 
     return {
@@ -106,7 +107,8 @@ export default {
       items: columnItems,
       parseSanityImage,
       isSimple,
-      toHTML
+      toHTML,
+      get: _
     }
   }
 }

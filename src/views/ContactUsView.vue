@@ -8,9 +8,30 @@
 
     <section class="bg-white py-[100px] xl:pt-[120px]">
       <div class="section-container">
-        <suspense>
+        <!-- <suspense>
           <three-column-image :column-items="threeColumn" />
-        </suspense>
+        </suspense> -->
+        <div v-if="threeColumn" class="three-column-section w-full">
+      <div class="flex flex-col lg:flex-row lg:gap-x-10 gap-y-10 mb-10">
+        <div v-for="(item, id) in threeColumn" :key="id" class="flex-1">
+          
+          <template v-if="item.image_panel">
+            <img
+              class="rounded-full overflow-hidden w-full max-w-[152px] max-h-[152px] mb-[20px]"
+              :src="parseSanityImage(item.image_panel).url()"
+            />
+          </template>
+          <h3 class="text-black font-bold mb-[20px]">
+            {{ item.contentTitle }}
+          </h3>
+
+          <div
+            class="text-neutral-2 apercu-light prose"
+            v-html="toHTML(item.contentText)"
+          ></div>
+        </div>
+      </div>
+    </div>
       </div>
     </section>
 
@@ -32,17 +53,17 @@
 
 <script lang="ts">
 import { ref, reactive } from 'vue'
+import { toHTML } from '@portabletext/to-html'
+import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import CalloutBlock from '@/components/organism/CalloutBlock.vue'
 import ContactSection from '@/components/organism/ContactSection.vue'
-import ThreeColumnImage from '@/components/organism/ThreeColumnImage.vue'
 
 import ContactUs from '@/core/application/ContactUs'
 
 export default {
   components: {
     CalloutBlock,
-    ContactSection,
-    ThreeColumnImage
+    ContactSection
   },
   setup() {
     const section1 = ref()
@@ -59,10 +80,10 @@ export default {
       imagePanel: {}
     })
 
+    const columnItems = ref()
+
     const contactUs = new ContactUs()
     contactUs.getAllData().then((data: any) => {
-      console.info(data)
-
       section1.value = data.threeColumn.threeColumnSection.columnSection1!
       section2.value = data.threeColumn.threeColumnSection.columnSection2!
       section3.value = data.threeColumn.threeColumnSection.columnSection3!
@@ -74,11 +95,21 @@ export default {
       callout.ctaText = data.callout.cta_text!
       callout.ctaRedirection = data.callout.cta_redirection!
       callout.imagePanel = data.callout.image_panel!
+
+      columnItems.value = [
+        data.threeColumn.threeColumnSection.columnSection1!,
+        data.threeColumn.threeColumnSection.columnSection2!,
+        data.threeColumn.threeColumnSection.columnSection3!
+      ]
     })
 
+    
+
     return {
-      threeColumn: [section1, section2, section3],
-      callout
+      threeColumn: columnItems,
+      callout,
+      toHTML,
+      parseSanityImage
     }
   }
 }
