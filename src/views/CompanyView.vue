@@ -94,7 +94,7 @@
               class="overflow-hidden cursor-pointer hover:shadow-lg"
             >
               <img
-                :src="parseSanityImage(client.image_panel).url()"
+                :src="parseSanityImage(client['image_panel']).url()"
                 class="w-full"
                 :alt="_.get(client, 'image_panel.alt')"
               />

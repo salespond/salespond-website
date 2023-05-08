@@ -11,7 +11,7 @@
 
 [v-cloak] { display:none; }
 
-@font-face {
+/* @font-face {
   font-family: 'apercu';
   src: url('../../src/assets/fonts/Apercu\ Light.otf') format('opentype'),
     url('../../src/assets/fonts/Apercu\ Regular.otf') format('opentype'),
@@ -20,7 +20,7 @@
     url('../../src/assets/fonts/Apercu\ Mono.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 @font-face {
   font-family: 'montserrat';
@@ -52,11 +52,11 @@
   font-weight: normal;
 }
 
-nav,
+/* nav,
 footer,
 button {
   font-family: apercu, sans-serif;
-}
+} */
 
 main,
 footer {
