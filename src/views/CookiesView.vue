@@ -75,7 +75,7 @@ export default {
       content: {}
     })
 
-    const contentItems: object[] = []
+    const contentItems: Array<any> = []
     const portableText = ref('')
 
     const cookies = new Cookies()

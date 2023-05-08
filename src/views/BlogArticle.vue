@@ -37,7 +37,7 @@
                 <img :src="parseSanityImage(featured['image_panel']).url()">
               </div>
               <div class="content mb-[25px]">
-                <p class="text-primary text-sm mb-[15px] leading-none">{{ featured['articleInfo'].readingTime! }}</p>
+                <p class="text-primary text-sm mb-[15px] leading-none">{{ _.get(featured['articleInfo'], 'readingTime') }}</p>
                 <div class="max-h-[70px] overflow-hidden mb-[15px] min-h-[60px]">
                   <p class="text-lg text-gray-700">
                     {{ featured['banner_text'] }}
@@ -61,6 +61,7 @@
 </template>
 
 <script lang="ts">
+import * as _ from 'lodash'
 import dayjs from 'dayjs'
 import { computed, reactive, ref } from 'vue'
 import { useStore } from 'vuex'
@@ -248,6 +249,7 @@ export default {
             tags,
             formatTags,
             limit,
+            _
         }
   }
 }
