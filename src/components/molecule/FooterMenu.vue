@@ -60,7 +60,8 @@
       </div>
 
       <div class="lg:col-span-3 py-[30px] lg:py-0">
-        <div class="mb-3">
+        <SubscribeField/>
+        <!-- <div class="mb-3">
           <div class="font-bold">Not quite ready for Salespond?</div>
           <p class="text-gray-500">
             Join our online community for free and hear about the latest news.
@@ -74,7 +75,7 @@
             class="w-full h-[43px] px-5 bg-gray-300 rounded-full absolute top-0 left-0"
           />
           <ButtonPrimary class="absolute right-0" text="Subscribe" />
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -100,11 +101,13 @@
 <script lang="ts">
 import BrandIcon from '../icon/BrandIcon.vue'
 import ButtonPrimary from '../atom/button/ButtonPrimary.vue'
+import SubscribeField from './SubscribeField.vue'
 
 export default {
   components: {
     BrandIcon,
-    ButtonPrimary
+    ButtonPrimary,
+    SubscribeField
   }
 }
 </script>

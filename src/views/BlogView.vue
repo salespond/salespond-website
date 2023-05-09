@@ -15,7 +15,7 @@
       </div>
     </section>
 
-    <section class="bg-gray-100">
+    <!-- <section class="bg-gray-100">
       <div class="callout-container py-[50px] lg:py-[80px]">
         <CalloutBlock
           :text="callout.bannerText"
@@ -27,11 +27,11 @@
           :image="callout.imagePanel"
         />
       </div>
-    </section>
+    </section> -->
 
     <section class="w-full bg-gray-100 py-[100px]">
       <div class="s-container relative">
-        <div class="blog-nav grid grid-cols-1 lg:grid-cols-2 gap-4 h-[48px] mb-[80px]">
+        <!-- <div class="blog-nav grid grid-cols-1 lg:grid-cols-2 gap-4 h-[48px] mb-[80px]">
           <div
             class="flex flex-row justify-between lg:justify-start lg:space-x-[45px] items-center"
           >
@@ -56,7 +56,7 @@
               placeholder="Search articles"
             />
           </div>
-        </div>
+        </div> -->
 
         <div class="blog-result">
           <div
