@@ -57,6 +57,7 @@
               <div
                 v-html="contentChange(get(info, 'block_content'))"
                 class="prose info-content"
+                :class="{ 'isDark': !get(info, 'image_section.image_location_toggle') }"
               ></div>
             </div>
           </div>

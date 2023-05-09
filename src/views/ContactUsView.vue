@@ -7,7 +7,7 @@
     </section>
 
     <section class="bg-white py-[100px] xl:pt-[120px]">
-      <div class="section-container">
+      <div class="s-container">
         <!-- <suspense>
           <three-column-image :column-items="threeColumn" />
         </suspense> -->
