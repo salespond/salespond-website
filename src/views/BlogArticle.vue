@@ -18,8 +18,8 @@
 
     <section class="article bg-white py-[50px] lg:py-[100px]">
       <div class="xs-container">
-        <div class="max-w-[65ch] mx-auto mb-5 text-gray-700">{{ formatTags(tags) }}</div>
-        <div class="prose mx-auto" v-html="portableText"></div>
+        <div class="prose mx-auto mb-10" v-html="portableText"></div>
+        <div class="max-w-[65ch] mx-auto">Tags: <span class="text-blue-700 text-sm">{{ tags }}</span></div>
       </div>
     </section>
 
