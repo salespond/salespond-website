@@ -132,6 +132,7 @@ export default {
 
     const home = new Home()
     home.getAllData().then((data: HomeModel) => {
+      console.info(data)
       homeBanner.bannerLabel = data.homeBanner.banner_label!
       homeBanner.bannerText = data.homeBanner.banner_text!
       homeBanner.subheaderText = data.homeBanner.subheader_text!
