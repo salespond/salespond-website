@@ -2,6 +2,15 @@
 import { RouterView } from 'vue-router'
 import NavMenu from './components/molecule/NavMenu.vue'
 import FooterMenu from './components/molecule/FooterMenu.vue'
+
+$(document).ready(() => {
+  console.info('jq')
+  $('.hero-banner').ripples({
+    resolution: 800,
+    dropRadius: 20,
+    perturbance: 0.04,
+  });
+})
 </script>
 
 <template>

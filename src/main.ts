@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store/index'
 import { MotionPlugin } from '@vueuse/motion'
+import jQuery from 'jquery'
+import 'jquery.ripples'
+
+window.$ = jQuery
 
 import 'animate.css'
 import './assets/main.css'
