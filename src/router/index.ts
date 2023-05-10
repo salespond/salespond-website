@@ -56,7 +56,7 @@ const router = createRouter({
       component: ContactUsView
     },
     {
-      path: '/blog/:id/:slug',
+      path: '/blog/:slug',
       name: 'blog_arctile',
       component: BlogArticle
     },

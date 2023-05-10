@@ -6,7 +6,7 @@ export default class ArticleRepository {
 
   async fetch() {
     const results = await new QueryBuilder()
-      .rawQuery(`*[_id == '${ArticleRepository.contentName}'][0] { blogs[_key == '${this.key}'] }`)
+      .rawQuery(`*[_id == '${ArticleRepository.contentName}'][0] { blogs[banner_text == '${this.key}'] }`)
       .process()
 
     return results.getResultInfo()

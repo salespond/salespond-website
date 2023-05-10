@@ -87,9 +87,7 @@ export default {
     const store = useStore()
     const route = useRoute()
     const router = useRouter()
-    const key = route.params.id.toString()
-
-    console.info(key)
+    const slug = route.params.slug.toString().split('-').join(' ')
 
     // console.info(store.getters['blog_category/GET_category'])
     const pageBanner = reactive({
@@ -140,7 +138,7 @@ export default {
 
     const limit = ref(3)
     const article = new ArticleService()
-    article.setKey(key)
+    article.setKey(slug)
     const loadData = () => {
       article.process().then((data: any) => {
         console.info(data)
