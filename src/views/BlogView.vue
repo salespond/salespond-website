@@ -164,8 +164,8 @@ export default {
     })
 
     const goToArticle = (details: any, key: any) => {
-      const slug = details.toLowerCase().replace(/\s+/g, '-')
-      const url = '/blog/' + key + '/' + slug
+      const slug = details.replace(/\s+/g, '-')
+      const url = `/blog/${slug}`
 
       router.push(url)
     }
