@@ -102,41 +102,37 @@ export default {
     const additionalClass =
       props.bannerSize === 'xl' ? 'text-5xl lg:text-8xl' : 'text-5xl lg:text-7xl'
 
-    const target = ref(null)
+    // const target = ref(null)
 
-    const { elementX, elementY, isOutside, elementHeight, elementWidth } = useMouseInElement(target)
+    // const { elementX, elementY, isOutside, elementHeight, elementWidth } = useMouseInElement(target)
 
-    const mouse = reactive(useMouseInElement(target))
+    // const mouse = reactive(useMouseInElement(target))
 
-    const cardTransform = computed(() => {
-      const MAX_ROTATION = 6
+    // const cardTransform = computed(() => {
+    //   const MAX_ROTATION = 6
 
-      const rX = (MAX_ROTATION / 2 - (elementY.value / elementHeight.value) * MAX_ROTATION).toFixed(
-        2
-      )
+    //   const rX = (MAX_ROTATION / 2 - (elementY.value / elementHeight.value) * MAX_ROTATION).toFixed(
+    //     2
+    //   )
 
-      const rY = ((elementX.value / elementWidth.value) * MAX_ROTATION - MAX_ROTATION / 2).toFixed(
-        2
-      )
-
-      // console.info(rX)
-      console.info(rY)
-
-      return isOutside.value
-        ? ''
-        : `perspective(${elementWidth.value}px) rotateX(${rX}deg) rotateY(${rX}deg)`
-    })
+    //   const rY = ((elementX.value / elementWidth.value) * MAX_ROTATION - MAX_ROTATION / 2).toFixed(
+    //     2
+    //   )
+    //   return isOutside.value
+    //     ? ''
+    //     : `perspective(${elementWidth.value}px) rotateX(${rX}deg) rotateY(${rX}deg)`
+    // })
 
     return {
       parseSanityImage,
       additionalClass,
-      cardTransform,
-      elementX,
-      elementY,
-      isOutside,
-      elementHeight,
-      elementWidth,
-      mouse
+      // cardTransform,
+      // elementX,
+      // elementY,
+      // isOutside,
+      // elementHeight,
+      // elementWidth,
+      // mouse
     }
   }
 }
