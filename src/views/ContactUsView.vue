@@ -18,7 +18,8 @@
                 <img
                   class="rounded-full overflow-hidden w-full max-w-[152px] max-h-[152px] mb-[20px]"
                   :src="parseSanityImage(item.image_panel).url()"
-                  width="640" height="360"
+                  width="640"
+                  height="360"
                 />
               </template>
               <h3 class="text-black font-bold mb-[20px]">

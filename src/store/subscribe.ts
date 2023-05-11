@@ -5,18 +5,18 @@ const state = () => ({
 
 const actions = {
   setFormStatus({ commit }: any, data: boolean) {
-      commit('SET_FORM_SENT_STATUS', data)
+    commit('SET_FORM_SENT_STATUS', data)
   }
 }
 
 const mutations = {
-  SET_FORM_SENT_STATUS(state: { formSent: boolean; }, payload: boolean) {
-      state.formSent = payload
+  SET_FORM_SENT_STATUS(state: { formSent: boolean }, payload: boolean) {
+    state.formSent = payload
   }
 }
 
 const getters = {
-  GET_formStatus: (state: { formSent: boolean; }) => state.formSent,
+  GET_formStatus: (state: { formSent: boolean }) => state.formSent
 }
 
 export default {
@@ -24,5 +24,5 @@ export default {
   state,
   getters,
   actions,
-  mutations,
+  mutations
 }

@@ -1,5 +1,11 @@
 <template>
-  <img :src="parseSanityImage(image).url" :alt="image.alt" class="w-full" width="640" height="360"/>
+  <img
+    :src="parseSanityImage(image).url"
+    :alt="image.alt"
+    class="w-full"
+    width="640"
+    height="360"
+  />
 </template>
 <script lang="ts">
 import { parseSanityImage } from '@/js/composable/parseSanityImage'

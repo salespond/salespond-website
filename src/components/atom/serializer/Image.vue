@@ -1,6 +1,12 @@
 <template>
   <div>
-    <img :src="parseSanityImage(imgSrc).url()" :alt="imgAlt" class="w-full" width="640" height="360" />
+    <img
+      :src="parseSanityImage(imgSrc).url()"
+      :alt="imgAlt"
+      class="w-full"
+      width="640"
+      height="360"
+    />
   </div>
 </template>
 <script lang="ts">

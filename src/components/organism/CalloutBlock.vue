@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="text"
     class="bg-white grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center rounded-[40px] shadow-lg px-[30px] py-[60px] lg:px-[50px] lg:py-[80px]"
   >
     <div class="w-full text-center">
@@ -7,7 +8,8 @@
         :src="parseSanityImage(image).url()"
         alt="Salespond fish"
         class="w-full mb-[30px] lg:mb-0 lg:max-w-[450px] lg:mx-auto"
-        width="640" height="360"
+        width="640"
+        height="360"
       />
     </div>
     <div>

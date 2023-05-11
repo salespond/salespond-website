@@ -68,7 +68,12 @@
               class="bg-white rounded-3xl p-[40px] shadow-lg hover:shadow-2xl transition-all duration-100 border border-gray-100"
             >
               <div class="image w-full mb-[20px]">
-                <img :src="parseSanityImage(blog.image_panel).url()" class="w-full" width="640" height="360" />
+                <img
+                  :src="parseSanityImage(blog.image_panel).url()"
+                  class="w-full"
+                  width="640"
+                  height="360"
+                />
               </div>
               <div class="content mb-[25px]">
                 <p class="text-primary text-sm mb-[15px] leading-none">

@@ -197,25 +197,23 @@ footer {
   border-color: #ff9600 !important;
 }
 
-
-
 .isDark > h1 > strong,
 .isDark > h2 > strong,
 .isDark > h3 > strong,
 .isDark > h4 > strong {
-  color: #fff!important;
+  color: #fff !important;
 }
 
 .isDark > p {
-  color: #c7c7c7!important;
+  color: #c7c7c7 !important;
 }
 
 .isDark > p > a {
-  color: #c7c7c7!important;
+  color: #c7c7c7 !important;
 }
 
 .isDark > p > strong {
-  color: #c7c7c7!important;
+  color: #c7c7c7 !important;
 }
 
 .prose :where(ul > li):not(:where([class~='not-prose'] *)) {

@@ -9,7 +9,13 @@
 
       <ButtonPrimary v-if="ctaEnabled" :text="ctaText" :link-to="ctaRedirection" />
     </div>
-    <img :src="parseSanityImage(image).url()" :alt="image.alt" class="w-full" width="640" height="360" />
+    <img
+      :src="parseSanityImage(image).url()"
+      :alt="image.alt"
+      class="w-full"
+      width="640"
+      height="360"
+    />
   </div>
 </template>
 <script lang="ts">

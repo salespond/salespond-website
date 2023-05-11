@@ -56,7 +56,7 @@
               <div
                 v-html="contentChange(get(info, 'block_content'))"
                 class="prose info-content"
-                :class="{ 'isDark': !get(info, 'image_section.image_location_toggle') }"
+                :class="{ isDark: !get(info, 'image_section.image_location_toggle') }"
               ></div>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default {
       ctaRedirection: '',
       imagePanel: {}
     })
-    
+
     const salesAcceleration = new SalesAcceleration()
     salesAcceleration.getAllData().then((data: SalesAccelerationModel) => {
       pageBanner.bannerLabel = data.heroBanner.banner_label!
@@ -168,20 +168,18 @@ export default {
       callout.ctaText = data.callout.cta_text!
       callout.ctaRedirection = data.callout.cta_redirection!
       callout.imagePanel = data.callout.image_panel!
-
-      
     })
 
     const contentChange = (content: any) => {
       const myPortableTextComponents = {
-          types: {
-            image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset) + ' />'
-          }
+        types: {
+          image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset) + ' />'
         }
+      }
 
-        const rawHtml = toHTML(content, {
-          components: myPortableTextComponents
-        })
+      const rawHtml = toHTML(content, {
+        components: myPortableTextComponents
+      })
 
       return rawHtml
         .split('<h4>')
