@@ -21,7 +21,8 @@ let setRandomInterval = (callback: any, minInterval: any, maxInterval: any) => {
 }
 
 $(document).ready(() => {
-  let $el = $('.hero-banner').ripples({
+  const element = $('.hero-banner') as any;
+  let $el = element.ripples({
     resolution: 800,
     dropRadius: 20,
     perturbance: 0.04
