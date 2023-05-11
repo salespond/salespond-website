@@ -1,9 +1,12 @@
 <template>
   <div class="hidden lg:flex flex-row h-full gap-[15px] items-center lg:visible">
     <template v-for="(item, key) in navItems" :key="key">
-      <router-link :to="{ name: item.name }" class="px-[5px] leading-10 text-white tracking-wide">
+      <!-- <router-link :to="{ name: item.name }" class="px-[5px] leading-10 text-white tracking-wide">
         {{ item.text }}
-      </router-link>
+      </router-link> -->
+      <a :href="item.redirection" class="px-[5px] leading-10 text-white tracking-wide">
+        {{ item.text }}
+      </a>
     </template>
 
     <ButtonPrimary text="Contact Us" linkTo="contact_us" />

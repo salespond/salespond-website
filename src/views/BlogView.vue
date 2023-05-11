@@ -1,16 +1,15 @@
 <template>
   <div class="page-content">
-    <section class="hero-banner-light flex items-center">
+    <section class="hero-banner flex items-center">
       <div class="s-container">
-        <SubPageHeroBanner
+        <HeroBanner
           :banner="pageBanner.bannerText"
           :label="pageBanner.bannerLabel"
-          :highlight="pageBanner.textHighlight"
           :content="pageBanner.subheaderText"
+          :image="pageBanner.imagePanel"
           :cta-enabled="pageBanner.ctaEnabled"
           :cta-text="pageBanner.ctaText"
           :cta-redirection="pageBanner.ctaRedirection"
-          :image="pageBanner.imagePanel"
         />
       </div>
     </section>
@@ -109,12 +108,14 @@ import { useRouter } from 'vue-router'
 import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import SubPageHeroBanner from '@/components/organism/SubPageHeroBanner.vue'
 import CalloutBlock from '@/components/organism/CalloutBlock.vue'
+import HeroBanner from '@/components/organism/HeroBanner.vue'
 import Resource from '@/core/application/Resource'
 
 export default {
   components: {
     CalloutBlock,
-    SubPageHeroBanner
+    SubPageHeroBanner,
+    HeroBanner
   },
   setup() {
     const router = useRouter()
