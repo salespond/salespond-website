@@ -1,16 +1,15 @@
 <template>
   <div class="page-content">
-    <section class="hero-banner-light flex items-center">
+    <section class="hero-banner flex items-center">
       <div class="s-container">
-        <SubPageHeroBanner
+        <HeroBanner
           :banner="pageBanner.bannerText"
           :label="pageBanner.bannerLabel"
-          :highlight="pageBanner.textHighlight"
           :content="pageBanner.subheaderText"
+          :image="pageBanner.imagePanel"
           :cta-enabled="pageBanner.ctaEnabled"
           :cta-text="pageBanner.ctaText"
           :cta-redirection="pageBanner.ctaRedirection"
-          :image="pageBanner.imagePanel"
         />
       </div>
     </section>
@@ -96,6 +95,7 @@ import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import CalloutBlock from '@/components/organism/CalloutBlock.vue'
 import ContactSection from '@/components/organism/ContactSection.vue'
 import SubPageHeroBanner from '@/components/organism/SubPageHeroBanner.vue'
+import HeroBanner from '@/components/organism/HeroBanner.vue'
 import Training from '@/core/application/Training'
 
 interface SalesAccelerationModel {
@@ -125,7 +125,8 @@ export default {
   components: {
     SubPageHeroBanner,
     CalloutBlock,
-    ContactSection
+    ContactSection,
+    HeroBanner
   },
   setup() {
     const pageBanner = reactive({

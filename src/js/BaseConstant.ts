@@ -2,31 +2,31 @@ export const NAV_ITEMS = [
   {
     name: 'sales_acceleration',
     text: 'Sales Acceleration',
-    redirection: '/'
+    redirection: '/sales-acceleration'
   },
   {
     name: 'marketing',
     text: 'Marketing',
-    redirection: '/'
+    redirection: '/marketing'
   },
   {
     name: 'channel',
     text: 'Channel',
-    redirection: '/'
+    redirection: '/channel'
   },
   {
     name: 'training',
     text: 'Training',
-    redirection: '/'
+    redirection: '/training'
   },
   {
     name: 'company',
     text: 'Company',
-    redirection: '/'
+    redirection: '/company'
   },
   {
     name: 'blog',
     text: 'Blog',
-    redirection: '/'
+    redirection: '/blog'
   }
 ]

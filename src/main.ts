@@ -6,7 +6,6 @@ import { MotionPlugin } from '@vueuse/motion'
 import jQuery from 'jquery'
 import 'jquery.ripples'
 
-// window.$ = jQuery
 Object.assign(window, { $: jQuery, jQuery })
 
 import 'animate.css'

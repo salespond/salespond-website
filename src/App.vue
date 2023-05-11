@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, reactive } from 'vue'
 import { RouterView } from 'vue-router'
 import NavMenu from './components/molecule/NavMenu.vue'
 import FooterMenu from './components/molecule/FooterMenu.vue'
-import { useMouseInElement } from '@vueuse/core'
 
 let randomDrop = ($el: any) => {
   var x = Math.random() * $el.outerWidth()
@@ -20,6 +18,17 @@ let setRandomInterval = (callback: any, minInterval: any, maxInterval: any) => {
   }, Math.floor(Math.random() * (maxInterval - minInterval + 1) + minInterval))
 }
 
+// const doRipples = () => {
+// // const element = $('.hero-banner') as any;
+// const element = $('.hero-banner') as any;
+//   let $el = element.ripples({
+//     resolution: 800,
+//     dropRadius: 20,
+//     perturbance: 0.04
+//   })
+//   setRandomInterval(() => randomDrop($el), 500, 3000)
+// }
+
 $(document).ready(() => {
   const element = $('.hero-banner') as any;
   let $el = element.ripples({
@@ -27,9 +36,10 @@ $(document).ready(() => {
     dropRadius: 20,
     perturbance: 0.04
   })
-
+  console.info('test')
   setRandomInterval(() => randomDrop($el), 500, 3000)
 })
+
 </script>
 
 <template>
@@ -38,7 +48,7 @@ $(document).ready(() => {
       <NavMenu />
     </header>
     <main>
-      <router-view v-slot="{ Component }">
+      <router-view v-slot="{ Component }" class="ripple-container">
         <transition appear enter-active-class="animate__animated animate__fadeIn">
           <component :is="Component"></component>
         </transition>
@@ -52,6 +62,9 @@ $(document).ready(() => {
 
 <style scoped>
 main {
-  @apply min-h-screen bg-gradient-to-b from-accent-1 to-accent-2 min-h-screen;
-}
+  @apply w-full min-h-screen bg-gradient-to-b from-accent-1 to-accent-2;
+    /* background-color: black; */
+    background-attachment: fixed;
+    /* width: 100%; */
+  }
 </style>
