@@ -18,6 +18,6 @@ export default {
 </script>
 <style scoped>
 .prose :where(.prose > :last-child):not(:where([class~='not-prose'] *)) {
-  @apply text-gray-400
+  @apply text-gray-400;
 }
 </style>

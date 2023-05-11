@@ -1,3 +1,3 @@
 export default interface SubscribeFormModel {
-  email: string,
+  email: string
 }

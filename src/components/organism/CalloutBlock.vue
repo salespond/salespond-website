@@ -8,7 +8,8 @@
         :src="parseSanityImage(image).url()"
         alt="Salespond fish"
         class="w-full mb-[30px] lg:mb-0 lg:max-w-[450px] lg:mx-auto"
-        width="640" height="360"
+        width="640"
+        height="360"
       />
     </div>
     <div>

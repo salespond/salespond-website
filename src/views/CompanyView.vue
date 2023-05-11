@@ -23,7 +23,8 @@
             :src="parseSanityImage(companySeal.imagePanel).url()"
             class="w-[300px]"
             :alt="_.get(companySeal, 'imagePanel.alt')"
-            width="640" height="360"
+            width="640"
+            height="360"
           />
         </div>
         <div class="">
@@ -98,7 +99,8 @@
                 :src="parseSanityImage(client['image_panel']).url()"
                 class="w-full"
                 :alt="_.get(client, 'image_panel.alt')"
-                width="640" height="360"
+                width="640"
+                height="360"
               />
             </div>
           </div>

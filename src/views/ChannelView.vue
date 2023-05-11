@@ -46,7 +46,9 @@
               <img
                 :src="parseSanityImage(get(info, 'image_section.image_panel')).url()"
                 :alt="get(info, 'image_section.image_panel.alt')"
-                class="w-full" width="640" height="360"
+                class="w-full"
+                width="640"
+                height="360"
               />
             </div>
 
@@ -173,14 +175,14 @@ export default {
 
     const contentChange = (content: any) => {
       const myPortableTextComponents = {
-          types: {
-            image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset) + ' />'
-          }
+        types: {
+          image: ({ value }: any) => '<img src=' + parseSanityImage(value.asset) + ' />'
         }
+      }
 
-        const rawHtml = toHTML(content, {
-          components: myPortableTextComponents
-        })
+      const rawHtml = toHTML(content, {
+        components: myPortableTextComponents
+      })
 
       return rawHtml
         .split('<h4>')
