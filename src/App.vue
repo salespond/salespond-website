@@ -18,19 +18,26 @@ let setRandomInterval = (callback: any, minInterval: any, maxInterval: any) => {
   }, Math.floor(Math.random() * (maxInterval - minInterval + 1) + minInterval))
 }
 
-const doRipples = () => {
+// const doRipples = () => {
+// // const element = $('.hero-banner') as any;
 // const element = $('.hero-banner') as any;
-const element = $('.hero-banner') as any;
+//   let $el = element.ripples({
+//     resolution: 800,
+//     dropRadius: 20,
+//     perturbance: 0.04
+//   })
+//   setRandomInterval(() => randomDrop($el), 500, 3000)
+// }
+
+$(document).ready(() => {
+  const element = $('.hero-banner') as any;
   let $el = element.ripples({
     resolution: 800,
     dropRadius: 20,
     perturbance: 0.04
   })
+  console.info('test')
   setRandomInterval(() => randomDrop($el), 500, 3000)
-}
-
-$(document).ready(() => {
-  doRipples()
 })
 
 </script>

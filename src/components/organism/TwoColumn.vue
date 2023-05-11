@@ -2,12 +2,13 @@
   <div
     class="min-h-screen grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px] items-center justify-center"
   >
-    <ColumnImage :image-src="src" />
+    <ColumnImage :image-src="imgSrc.image_panel" />
     <ColumnDetails :cta1="button1" :cta2="button2" :class="{ 'order-first': isLocatedRight }" />
   </div>
 </template>
 <script lang="ts">
 import { toRefs, provide } from 'vue'
+import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import ColumnImage from '../molecule/ColumnImage.vue'
 import ColumnDetails from '../molecule/ColumnDetails.vue'
 
@@ -44,9 +45,9 @@ export default {
       type: Object,
       default() {
         return {
-          cta_enabled: true,
-          cta_redirection: '#',
-          cta_text: 'Sales Acceleration'
+          cta_redirection:"sales_acceleration",
+          cta_text:"Sales Acceleration",
+          cta_enabled:true
         }
       }
     },
@@ -54,9 +55,9 @@ export default {
       type: Object,
       default() {
         return {
-          cta_enabled: true,
-          cta_redirection: '#',
-          cta_text: 'Sales Acceleration'
+          cta_redirection:"sales_acceleration",
+          cta_text:"Sales Acceleration",
+          cta_enabled:true
         }
       }
     },
@@ -92,7 +93,9 @@ export default {
       button1: cta1,
       button2: cta2,
       isLocatedRight,
-      src
+      imgSrc: image,
+      src,
+      parseSanityImage
     }
   }
 }

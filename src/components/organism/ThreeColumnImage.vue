@@ -97,7 +97,7 @@ export default {
       default: 'normal'
     }
   },
-  async setup(props: any) {
+  setup(props: any) {
     const { description, bannerText, textHighlight, columnItems, columnType } = toRefs(props)
     const isSimple = columnType.value === 'simple'
 
