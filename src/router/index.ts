@@ -12,6 +12,8 @@ import TermsOfUseView from '../views/TermsOfUseView.vue'
 import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 import CookiesView from '../views/CookiesView.vue'
 
+import HomeAlternative from '../views/HomeAlternative.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -74,6 +76,11 @@ const router = createRouter({
       path: '/cookies',
       name: 'cookies',
       component: CookiesView
+    },
+    {
+      path: '/alternative',
+      name: 'home2',
+      component: HomeAlternative
     }
   ]
 })

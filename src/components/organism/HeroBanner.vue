@@ -2,7 +2,7 @@
   <div
     v-if="banner"
     ref="target"
-    class="grid grid-cols-1 lg:grid-cols-2 lg:items-center"
+    class="grid grid-cols-1 lg:grid-cols-2 lg:items-center target"
     v-motion
     :initial="{ opacity: 0, y: 100 }"
     :enter="{
@@ -16,8 +16,8 @@
   >
     <div class="py-[80px]">
       <p class="text-sm text-primary font-bold">{{ label }}</p>
-      <h1 class="font-bold text-white pr-3 mb-2" :class="additionalClass">
-        {{ banner }}
+      <h1 class="font-bold text-white pr-3 mb-2 transition-all duration-500 opacity-90 hover:opacity-100" :class="additionalClass">
+        {{ animatedText }}
       </h1>
       <p class="text-gray-400 mb-[20px]">
         {{ content }}
@@ -102,8 +102,6 @@ export default {
     const additionalClass =
       props.bannerSize === 'xl' ? 'text-5xl lg:text-8xl' : 'text-5xl lg:text-7xl'
 
-     
-
     const target = ref(null)
 
     const { elementX, elementY, isOutside, elementHeight, elementWidth } = useMouseInElement(target)
@@ -125,6 +123,26 @@ export default {
         : `perspective(${elementWidth.value}px) rotateX(${rX}deg) rotateY(${rX}deg)`
     })
 
+    const animatedText = ref('')
+    const typingEffect = async () => {
+      let counter = 0;
+      const toArray = await props.banner.split('')
+      const typing = setInterval(() => {
+        if (counter == toArray.length) {
+          clearInterval(typing)
+        } else {
+          animatedText.value += toArray[counter]
+          counter++
+        }
+        
+        // console.info(toArray)
+      }, 200)
+    }
+
+    setTimeout(() => {
+      typingEffect()
+    }, 1000)
+
     return {
       parseSanityImage,
       additionalClass,
@@ -134,7 +152,9 @@ export default {
       isOutside,
       elementHeight,
       elementWidth,
-      mouse
+      mouse,
+      animatedText,
+      typingEffect
     }
   }
 }
