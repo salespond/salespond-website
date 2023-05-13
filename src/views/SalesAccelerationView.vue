@@ -123,7 +123,7 @@ export default {
     SubPageHeroBanner,
     CalloutBlock,
     ContactSection,
-    HeroBanner,
+    HeroBanner
   },
   setup() {
     const pageBanner = reactive({

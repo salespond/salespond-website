@@ -11,9 +11,9 @@
         </transition>
       </router-view>
     </main>
-      <footer>
-        <FooterMenu />
-      </footer>
+    <footer>
+      <FooterMenu />
+    </footer>
   </div>
 </template>
 
@@ -39,7 +39,7 @@ let setRandomInterval = (callback: any, minInterval: any, maxInterval: any) => {
 }
 
 $(document).ready(() => {
-  const element = $('section') as any;
+  const element = $('section') as any
   let $el = element.ripples({
     resolution: 500,
     dropRadius: 30,
@@ -48,24 +48,23 @@ $(document).ready(() => {
   console.info('test')
   // setRandomInterval(() => randomDrop($el), 500, 3000)
 })
-
 </script>
 
 <style scoped>
 main {
   @apply w-full min-h-screen bg-[#010101];
   /* @apply w-full min-h-screen bg-gradient-to-b from-accent-1 to-accent-2; */
-    /* background-image: url('/public/assets/water2.jpg');
+  /* background-image: url('/public/assets/water2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; */
-    background-attachment: fixed;
-  }
+  background-attachment: fixed;
+}
 
-  .boxx {
-    background-image: url('public/assets/ezgif.com-crop.gif');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-  }
+.boxx {
+  background-image: url('public/assets/ezgif.com-crop.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
 </style>

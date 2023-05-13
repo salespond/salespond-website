@@ -45,9 +45,9 @@ export default {
       type: Object,
       default() {
         return {
-          cta_redirection:"sales_acceleration",
-          cta_text:"Sales Acceleration",
-          cta_enabled:true
+          cta_redirection: 'sales_acceleration',
+          cta_text: 'Sales Acceleration',
+          cta_enabled: true
         }
       }
     },
@@ -55,9 +55,9 @@ export default {
       type: Object,
       default() {
         return {
-          cta_redirection:"sales_acceleration",
-          cta_text:"Sales Acceleration",
-          cta_enabled:true
+          cta_redirection: 'sales_acceleration',
+          cta_text: 'Sales Acceleration',
+          cta_enabled: true
         }
       }
     },
