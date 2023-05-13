@@ -1,7 +1,9 @@
 <template>
     <div class="page-content">
-      <section class="h-screen flex items-center">
-        <div class="s-container">
+      <section class="w-full h-screen flex items-center justify-center" style="background-image: url('/public/assets/bg_large.png');background-size: cover;background-position: center; background-repeat: no-repeat;">
+      <!-- <section class="w-full h-screen flex items-center justify-center"> -->
+        <!-- <img src="/public/assets/bg_content_only.png" class="opacity-0"> -->
+        <!-- <div class="s-container">
           <HeroBanner
             :banner="homeBanner.bannerText"
             :label="homeBanner.bannerLabel"
@@ -12,10 +14,10 @@
             :cta-redirection="homeBanner.ctaRedirection"
             banner-size="xl"
           />
-        </div>
+        </div> -->
       </section>
   
-      <section class="">
+      <!-- <section class="">
         <div class="s-container relative">
           <TwoColumn
             :banner-text="twoColumn1.bannerText"
@@ -25,7 +27,7 @@
             :image="twoColumn1.imageSection"
           />
         </div>
-      </section>
+      </section> -->
   
       <section class="">
         <div class="s-container py-[50px] flex flex-col gap-y-[50px]">

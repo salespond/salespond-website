@@ -41,19 +41,20 @@ let setRandomInterval = (callback: any, minInterval: any, maxInterval: any) => {
 $(document).ready(() => {
   const element = $('section') as any;
   let $el = element.ripples({
-    resolution: 800,
-    dropRadius: 20,
-    perturbance: 0.04
+    resolution: 500,
+    dropRadius: 30,
+    perturbance: 0.01
   })
   console.info('test')
-  setRandomInterval(() => randomDrop($el), 500, 3000)
+  // setRandomInterval(() => randomDrop($el), 500, 3000)
 })
 
 </script>
 
 <style scoped>
 main {
-  @apply w-full min-h-screen bg-gradient-to-b from-accent-1 to-accent-2;
+  @apply w-full min-h-screen bg-[#010101];
+  /* @apply w-full min-h-screen bg-gradient-to-b from-accent-1 to-accent-2; */
     /* background-image: url('/public/assets/water2.jpg');
     background-size: cover;
     background-position: center;
