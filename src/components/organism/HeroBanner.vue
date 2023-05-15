@@ -20,7 +20,7 @@
         class="font-bold text-white pr-3 mb-2 transition-all duration-500 opacity-90 hover:opacity-100"
         :class="additionalClass"
       >
-        {{ animatedText }}
+        {{ banner }}
       </h1>
       <p class="text-gray-400 mb-[20px]">
         {{ content }}
