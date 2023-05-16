@@ -4,7 +4,11 @@
       <!-- <router-link :to="{ name: item.name }" class="px-[5px] leading-10 text-white tracking-wide">
         {{ item.text }}
       </router-link> -->
-      <a :href="item.redirection" class="px-[5px] leading-10 text-white tracking-wide">
+      <a
+        :href="item.redirection"
+        class="px-[5px] leading-10 text-white tracking-wide"
+        :class="{ 'border-b-[3px] border-primary': currentRoute === item.name }"
+      >
         {{ item.text }}
       </a>
     </template>
@@ -14,6 +18,8 @@
 </template>
 
 <script lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { NAV_ITEMS } from '@/js/BaseConstant'
 import ButtonPrimary from '../button/ButtonPrimary.vue'
 
@@ -22,8 +28,11 @@ export default {
     ButtonPrimary
   },
   setup() {
+    const route = useRoute()
+    const currentRoute = computed(() => route.name)
     return {
-      navItems: NAV_ITEMS
+      navItems: NAV_ITEMS,
+      currentRoute
     }
   }
 }

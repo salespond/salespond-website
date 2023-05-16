@@ -22,6 +22,7 @@
     "@vueuse/core": "^10.1.2",
     "@vueuse/motion": "^2.0.0-beta.12",
     "animate.css": "^4.1.1",
+    "aos": "^3.0.0-beta.6",
     "dayjs": "^1.11.7",
     "jquery": "^3.6.4",
     "jquery.ripples": "^0.6.3",

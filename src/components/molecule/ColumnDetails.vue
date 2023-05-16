@@ -2,7 +2,7 @@
   <div class="h-full flex flex-col items-start justify-center">
     <ColumnTitle />
     <ColumnDescription />
-    <div class="flex flex-col lg:flex-row gap-2">
+    <div class="flex flex-col lg:flex-row gap-2" data-aos="fade-in" data-aos-delay="500">
       <ButtonPrimary
         v-if="btn1.cta_enabled"
         class="w-full lg:w-fit"
