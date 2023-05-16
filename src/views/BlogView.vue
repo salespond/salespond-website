@@ -72,7 +72,7 @@
                       href="javascript:void(0)"
                       class="text-blue-500 hover:underline"
                       :key="id"  
-                      v-for="(tag, id) in getTags(_.get(blog, 'articleInfo.blogTags'))"
+                      v-for="(tag, id) in blogTagsHandler(_.get(blog, 'articleInfo.blogTags'))"
                       @click="filterByTag(_.get(tag, 'id'))"
                     >
                       {{ _.get(tag, 'title') }}
@@ -106,6 +106,7 @@ import SubPageHeroBanner from '@/components/organism/SubPageHeroBanner.vue'
 import CalloutBlock from '@/components/organism/CalloutBlock.vue'
 import HeroBanner from '@/components/organism/HeroBanner.vue'
 import Resource from '@/core/application/Resource'
+import { blogTagsHandler } from '@/js/composable/blogTagsHandler'
 
 export default {
   components: {
@@ -172,23 +173,6 @@ export default {
       router.push(url)
     }
 
-    const getTags = (blogTags: []) => {
-      const tags = BLOG_TAGS;
-
-      interface BaseTags {
-        id?: number | string,
-        title: string
-      }
-
-      return blogTags.map((tag: string) => {
-        return tags.find((baseTag: BaseTags) => {
-          if (baseTag.id === parseInt(tag)) {
-            return baseTag.title.toString().toUpperCase()
-          }
-        })
-      })
-    }
-
     const filterByTag = (tag: any) => {
       const blogListCopy = [...allBlogs.value]
       const newBlogList: object[] = []
@@ -209,8 +193,8 @@ export default {
       blogCateg,
       goToArticle,
       _,
-      getTags,
-      filterByTag
+      filterByTag,
+      blogTagsHandler
     }
   }
 }
