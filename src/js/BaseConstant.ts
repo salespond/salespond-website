@@ -30,3 +30,12 @@ export const NAV_ITEMS = [
     redirection: '/blog'
   }
 ]
+
+export const BLOG_TAGS = [
+  { id: 1, title: 'SDR-As-A-Service' },
+  { id: 2, title: 'B2B Data' },
+  { id: 3, title: 'Lead Generation' },
+  { id: 4, title: 'Sales' },
+  { id: 5, title: 'Outsourcing' },
+  { id: 6, title: 'Marketing' }
+]

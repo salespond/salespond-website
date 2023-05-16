@@ -64,7 +64,7 @@
             <div
               v-for="(blog, i) in blogList"
               :key="i"
-              class="bg-white rounded-3xl p-[40px] shadow-lg hover:shadow-2xl transition-all duration-100 border border-gray-100"
+              class="bg-white rounded-3xl cursor-pointer p-[40px] shadow-lg hover:shadow-2xl transition-all duration-100 border border-gray-100"
             >
               <div class="image w-full mb-[20px]">
                 <img
@@ -78,16 +78,28 @@
                 <p class="text-primary text-sm mb-[15px] leading-none">
                   {{ _.get(blog, 'articleInfo.readingTime') }}
                 </p>
-                <div class="max-h-[70px] overflow-hidden mb-[15px] min-h-[60px]">
-                  <p class="text-lg text-gray-700">
+                <div class="max-h-[200px] overflow-hidden mb-[15px] min-h-[200px]">
+                  <p class="text-lg text-gray-700 mb-[30px] font-bold">
                     {{ _.get(blog, 'banner_text') }}
                   </p>
+                  <div class="flex flex-col gap-1">
+                    <h5 class="text-xs font-bold">TAGS:</h5>
+                    <a
+                      href="javascript:void(0)"
+                      class="text-blue-500 hover:underline"
+                      :key="id"
+                      v-for="(tag, id) in blogTagsHandler(_.get(blog, 'articleInfo.blogTags'))"
+                      @click="filterByTag(_.get(tag, 'id'))"
+                    >
+                      {{ _.get(tag, 'title') }}
+                    </a>
+                  </div>
                 </div>
               </div>
 
               <div>
                 <button
-                  class="border border-primary rounded-full text-primary hover:text-white hover:bg-primary py-2 px-[25px] text-[16px]"
+                  class="bg-primary border border-primary rounded-full text-white hover:brightness-90 hover:bg-primary py-2 px-[25px] text-[16px]"
                   @click="goToArticle(_.get(blog, 'banner_text'), _.get(blog, '_key'))"
                 >
                   Read more
@@ -106,10 +118,12 @@ import * as _ from 'lodash'
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { parseSanityImage } from '@/js/composable/parseSanityImage'
+import { BLOG_TAGS } from '@/js/BaseConstant'
 import SubPageHeroBanner from '@/components/organism/SubPageHeroBanner.vue'
 import CalloutBlock from '@/components/organism/CalloutBlock.vue'
 import HeroBanner from '@/components/organism/HeroBanner.vue'
 import Resource from '@/core/application/Resource'
+import { blogTagsHandler } from '@/js/composable/blogTagsHandler'
 
 export default {
   components: {
@@ -176,6 +190,17 @@ export default {
       router.push(url)
     }
 
+    const filterByTag = (tag: any) => {
+      const blogListCopy = [...allBlogs.value]
+      const newBlogList: object[] = []
+      blogListCopy.map((data: any, key) => {
+        if (data.articleInfo.blogTags.includes(tag.toString())) {
+          newBlogList.push(blogListCopy[key])
+        }
+      })
+      blogList.value = newBlogList
+    }
+
     return {
       parseSanityImage,
       pageBanner,
@@ -184,7 +209,9 @@ export default {
       blogList,
       blogCateg,
       goToArticle,
-      _
+      _,
+      filterByTag,
+      blogTagsHandler
     }
   }
 }

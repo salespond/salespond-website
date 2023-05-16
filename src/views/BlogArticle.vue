@@ -4,9 +4,9 @@
       <div class="s-container">
         <SubPageHeroBanner
           :banner="pageBanner.bannerText"
-          :label="pageBanner.bannerLabel"
+          :label="author"
           :highlight="pageBanner.textHighlight"
-          :content="pageBanner.subheaderText"
+          :content="pageBanner.bannerLabel"
           :cta-enabled="pageBanner.ctaEnabled"
           :cta-text="pageBanner.ctaText"
           :cta-redirection="pageBanner.ctaRedirection"
@@ -19,7 +19,7 @@
       <div class="xs-container">
         <div class="prose mx-auto mb-10" v-html="portableText"></div>
         <div class="max-w-[65ch] mx-auto">
-          Tags: <span class="text-blue-700 text-sm">{{ tags }}</span>
+          Tags: <span class="text-blue-700 text-sm">{{ tagText(tags) }}</span>
         </div>
       </div>
     </section>
@@ -80,6 +80,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { parseSanityImage } from '@/js/composable/parseSanityImage'
 import { toHTML } from '@portabletext/to-html'
 import SubPageHeroBanner from '@/components/organism/SubPageHeroBanner.vue'
+import { blogTagsHandler } from '@/js/composable/blogTagsHandler'
 
 import ArticleService from '@/core/application/ArticleService'
 import BlogCategoryService from '@/core/application/service/blog/BlogCategoryService'
@@ -138,7 +139,7 @@ export default {
     const articleCategory = ref('')
     const featuredArticles = ref([])
     const portableText = ref('')
-    const tags = ref('')
+    const tags = ref()
     const indexKey = ref('')
     const categoryKey = ref('')
 
@@ -181,20 +182,20 @@ export default {
         })
 
         indexKey.value = data.blogs[0]._key!
-        categoryKey.value = data.blogs[0].articleInfo.blogCategoryOption._ref!
+        // categoryKey.value = data.blogs[0].articleInfo.blogCategoryOption._ref!
 
-        article
-          .retrieveFeaturedArticle(categoryKey.value, indexKey.value, limit.value)
-          .then((data: any) => {
-            featuredArticles.value = data.blogs
-            showMore()
-          })
+        // article
+        //   .retrieveFeaturedArticle(categoryKey.value, indexKey.value, limit.value)
+        //   .then((data: any) => {
+        //     featuredArticles.value = data.blogs
+        //     showMore()
+        //   })
 
-        article.retrieveSpecificCategory(categoryKey.value).then((data: any) => {
-          articleCategory.value = data.blog_category
-        })
+        // article.retrieveSpecificCategory(categoryKey.value).then((data: any) => {
+        //   articleCategory.value = data.blog_category
+        // })
 
-        tags.value = data.blogs[0].articleInfo.tags!
+        tags.value = data.blogs[0].articleInfo.blogTags!
       })
     }
 
@@ -236,8 +237,16 @@ export default {
     }
 
     const formatTags = (tags: string) => {
-      // return tags.replaceAll(',', ' ')
       return tags.split(',').join('')
+    }
+
+    const tagText = (tags: []) => {
+      const tagObject = blogTagsHandler(tags)
+      return tagObject
+        .map((tag: any) => {
+          return tag.title
+        })
+        .join(', ')
     }
 
     return {
@@ -259,7 +268,9 @@ export default {
       tags,
       formatTags,
       limit,
-      _
+      _,
+      blogTagsHandler,
+      tagText
     }
   }
 }

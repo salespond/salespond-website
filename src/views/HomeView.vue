@@ -1,6 +1,15 @@
 <template>
   <div class="page-content">
-    <section class="hero-banner flex items-center">
+    <section
+      class="w-full h-screen flex items-center justify-center"
+      style="
+        background-image: url('https://cdn.sanity.io/images/0w6ohht0/production/40f191365b01357f88fb660cbdf5943971f2a543-1920x1080.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      "
+    ></section>
+    <!-- <section class="hero-banner flex items-center">
       <div class="s-container">
         <HeroBanner
           :banner="homeBanner.bannerText"
@@ -13,7 +22,7 @@
           banner-size="xl"
         />
       </div>
-    </section>
+    </section> -->
 
     <section class="bg-gray-100">
       <div class="s-container relative">

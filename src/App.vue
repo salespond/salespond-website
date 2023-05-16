@@ -45,7 +45,6 @@ $(document).ready(() => {
     dropRadius: 30,
     perturbance: 0.01
   })
-  console.info('test')
   // setRandomInterval(() => randomDrop($el), 500, 3000)
 })
 </script>

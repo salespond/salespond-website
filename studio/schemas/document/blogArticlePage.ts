@@ -35,12 +35,12 @@ export default {
                     type: 'string',
                     validation: (Rule: any) => Rule.required()
                 },
-                {
-                    name: 'blogCategoryOption',
-                    title: 'Category',
-                    type: 'reference',
-                    to: [{ type: blogCategory.name }]
-                },
+                // {
+                //     name: 'blogCategoryOption',
+                //     title: 'Category',
+                //     type: 'reference',
+                //     to: [{ type: blogCategory.name }]
+                // },
                 {
                     name: 'blogContent',
                     title: 'Blog Content',
@@ -48,12 +48,48 @@ export default {
                     validation: (Rule: any) => Rule.required()
                 },
                 {
-                    name: 'tags',
+                    name: 'blogTags',
+                    type: 'array',
                     title: 'Tags',
-                    type: 'string',
-                    description: 'You can input multiple tags separated by commas',
-                    validation: (Rule: any) => Rule.required()
+                    of: [{ type: 'string' }],
+                    options: {
+                        list: [
+                            {
+                                title: 'SDR-As-A-Service',
+                                value: '1'
+                            },
+                            {
+                                title: 'B2B Data',
+                                value: '2'
+                            },
+                            {
+                                title: 'Lead Generation',
+                                value: '3'
+                            },
+                            {
+                                title: 'Sales',
+                                value: '4'
+                            },
+                            {
+                                title: 'Outsourcing',
+                                value: '5'
+                            },
+                            {
+                                title: 'Marketing',
+                                value: '6'
+                            }
+                        ],
+                        layout: 'checkbox',
+                    }
+
                 },
+                // {
+                //     name: 'tags',
+                //     title: 'Tags',
+                //     type: 'string',
+                //     description: 'You can input multiple tags separated by commas',
+                //     validation: (Rule: any) => Rule.required()
+                // },
                 {
                     name: 'readingTime',
                     title: 'Reading Time',
