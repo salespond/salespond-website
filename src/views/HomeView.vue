@@ -8,8 +8,7 @@
         background-position: center;
         background-repeat: no-repeat;
       "
-    >
-    </section>
+    ></section>
     <!-- <section class="hero-banner flex items-center">
       <div class="s-container">
         <HeroBanner

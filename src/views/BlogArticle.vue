@@ -242,9 +242,11 @@ export default {
 
     const tagText = (tags: []) => {
       const tagObject = blogTagsHandler(tags)
-      return tagObject.map((tag: any) => {
-        return tag.title
-      }).join(', ')
+      return tagObject
+        .map((tag: any) => {
+          return tag.title
+        })
+        .join(', ')
     }
 
     return {

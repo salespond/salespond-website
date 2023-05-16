@@ -1,10 +1,10 @@
 import { BLOG_TAGS } from '@/js/BaseConstant'
 
 export const blogTagsHandler = (blogTags: [] = []) => {
-  const tags = BLOG_TAGS;
+  const tags = BLOG_TAGS
 
   interface BaseTags {
-    id?: number | string,
+    id?: number | string
     title: string
   }
 
