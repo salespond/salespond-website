@@ -27,6 +27,8 @@
         <div
           class="grid grid-cols-1 lg:items-center py-[50px] lg:py-[120px]"
           :class="{ 'text-white': !get(info, 'image_section.image_location_toggle') }"
+          data-aos="fade-up"
+          data-aos-delay="400"
         >
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-x-[100px] lg:mb-[50px]">
             <div class="mb-[30px]">

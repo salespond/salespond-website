@@ -4,9 +4,10 @@
       <!-- <router-link :to="{ name: item.name }" class="px-[5px] leading-10 text-white tracking-wide">
         {{ item.text }}
       </router-link> -->
-      <a :href="item.redirection" 
-      class="px-[5px] leading-10 text-white tracking-wide"
-      :class="{ 'border-b-[3px] border-primary': currentRoute === item.name}"
+      <a
+        :href="item.redirection"
+        class="px-[5px] leading-10 text-white tracking-wide"
+        :class="{ 'border-b-[3px] border-primary': currentRoute === item.name }"
       >
         {{ item.text }}
       </a>

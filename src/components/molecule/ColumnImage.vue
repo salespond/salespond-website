@@ -6,6 +6,8 @@
       class="w-full"
       width="640"
       height="360"
+      data-aos="fade-in"
+      data-aos-delay="100"
     />
   </div>
 </template>

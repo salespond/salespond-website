@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-1 lg:grid-cols-7 gap-6 lg:gap-[100px]">
-    <div class="lg:col-span-4">
+    <div class="lg:col-span-4" data-aos="fade-up" data-aos-delay="200" data-aos-mirror="true">
       <div class="h-full flex flex-col items-start justify-center">
         <p class="text-sm text-primary font-bold">{{ contactInfo.bannerLabel }}</p>
         <h1 class="text-5xl lg:text-7xl font-bold pr-3 mb-2">
@@ -9,7 +9,7 @@
         <p class="text-white mb-[20px] prose" v-html="toHTML(block)"></p>
       </div>
     </div>
-    <div class="lg:col-span-3">
+    <div class="lg:col-span-3" data-aos="fade-up" data-aos-delay="400" data-aos-mirror="true">
       <ContactForm />
     </div>
   </div>

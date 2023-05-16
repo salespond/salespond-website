@@ -1,5 +1,10 @@
 <template>
-  <div class="mb-[20px] prose" v-html="toHTML(description)"></div>
+  <div
+    class="mb-[20px] prose"
+    v-html="toHTML(description)"
+    data-aos="fade-in"
+    data-aos-delay="300"
+  ></div>
 </template>
 <script lang="ts">
 import { inject } from 'vue'
